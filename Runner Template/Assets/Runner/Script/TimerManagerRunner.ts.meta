@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 13634288c211d7c49b25efa3553fc9e7
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass TimerManagerRunner extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this._isRunning = false; // If timer is running\r\n    }\r\n    static getInstance()
+    {\r\n        if (!TimerManagerRunner.instance) {\r\n            TimerManagerRunner.instance
+    = new TimerManagerRunner();\r\n            return TimerManagerRunner.instance;\r\n       
+    }\r\n        else {\r\n            return this.instance;\r\n        }\r\n   
+    }\r\n    Start() {\r\n        this.ResetTimer();\r\n        this.StartTimer();\r\n   
+    }\r\n    Update() {\r\n    }\r\n    StartTimer() {\r\n        this._isRunning
+    = true;\r\n        this.startTime = UnityEngine_1.Time.time;\r\n    }\r\n   
+    StopTimer() {\r\n        this._isRunning = false;\r\n    }\r\n    ResetTimer()
+    {\r\n        this.currentTime = 0;\r\n        this._isRunning = false;\r\n   
+    }\r\n    /// <summary>\r\n    /// Get Time Remaining\r\n    /// </summary>\r\n   
+    GetTime() {\r\n        this.currentTime = UnityEngine_1.Time.time - this.startTime;\r\n       
+    return this.currentTime;\r\n    }\r\n    /// <summary>\r\n    /// Get if time
+    is running\r\n    /// </summary>\r\n    GetIsRunning() {\r\n        return this._isRunning;\r\n   
+    }\r\n}\r\nexports.default = TimerManagerRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZXJNYW5hZ2VyUnVubmVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGltZXJNYW5hZ2VyUnVubmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXdFO0FBRXhFLGlEQUFxRDtBQUlyRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFBckU7O1FBS1ksZUFBVSxHQUFZLEtBQUssQ0FBQyxDQUFDLHNCQUFzQjtJQWtFL0QsQ0FBQztJQTVEVyxNQUFNLENBQUMsV0FBVztRQUN0QixJQUFJLENBQUMsa0JBQWtCLENBQUMsUUFBUSxFQUFFO1lBQzlCLGtCQUFrQixDQUFDLFFBQVEsR0FBRyxJQUFJLGtCQUFrQixFQUFFLENBQUM7WUFDckQsT0FBTyxrQkFBa0IsQ0FBQyxRQUFRLENBQUM7U0FDeEM7YUFDRztZQUNBLE9BQU8sSUFBSSxDQUFDLFFBQVEsQ0FBQztTQUN4QjtJQUVMLENBQUM7SUFJRCxLQUFLO1FBRUQsSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBQ2xCLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztJQUN0QixDQUFDO0lBRUQsTUFBTTtJQUdOLENBQUM7SUFFTSxVQUFVO1FBRWIsSUFBSSxDQUFDLFVBQVUsR0FBRyxJQUFJLENBQUM7UUFDeEIsSUFBSSxDQUFDLFNBQVMsR0FBRSxrQkFBSSxDQUFDLElBQUksQ0FBQztJQUM3QixDQUFDO0lBRU8sU0FBUztRQUViLElBQUksQ0FBQyxVQUFVLEdBQUcsS0FBSyxDQUFDO0lBRTVCLENBQUM7SUFFTSxVQUFVO1FBRWIsSUFBSSxDQUFDLFdBQVcsR0FBRyxDQUFDLENBQUM7UUFDckIsSUFBSSxDQUFDLFVBQVUsR0FBRyxLQUFLLENBQUM7SUFDNUIsQ0FBQztJQUlELGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsY0FBYztJQUNQLE9BQU87UUFFZCxJQUFJLENBQUMsV0FBVyxHQUFFLGtCQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUM7UUFDekMsT0FBTyxJQUFJLENBQUMsV0FBVyxDQUFDO0lBQzVCLENBQUM7SUFFRCxhQUFhO0lBQ2IsMEJBQTBCO0lBQzFCLGNBQWM7SUFDUCxZQUFZO1FBRWYsT0FBTyxJQUFJLENBQUMsVUFBVSxDQUFDO0lBQzNCLENBQUM7Q0FDSjtBQXZFRCxxQ0F1RUMifQ==","assetPath":"Assets/Runner/Script/TimerManagerRunner.ts","manifest":{"properties":[],"name":"TimerManagerRunner","description":""},"isCompiled":true}'
+  typescriptHash: 624a5d3da0e7b882854c2efd0514f26a
+  onlyWriteTrigger: 0

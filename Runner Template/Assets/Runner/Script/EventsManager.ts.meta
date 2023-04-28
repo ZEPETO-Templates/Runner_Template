@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 5cc52e7cc8c502544b6f6a6f46b7706b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass EventsManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static getInstance() {\r\n       
+    if (!EventsManager.instance) {\r\n            EventsManager.instance = new EventsManager();\r\n       
+    }\r\n        return EventsManager.instance;\r\n    }\r\n    SomeMethod() {\r\n       
+    UnityEngine_1.Debug.Log(\"Hello, I am a singleton instance!\");\r\n    }\r\n}\r\nexports.default
+    = EventsManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXZlbnRzTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkV2ZW50c01hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSw2Q0FBb0M7QUFDcEMsaURBQXFEO0FBRXJELE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFNckQsTUFBTSxDQUFDLFdBQVc7UUFDckIsSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUU7WUFDekIsYUFBYSxDQUFDLFFBQVEsR0FBRyxJQUFJLGFBQWEsRUFBRSxDQUFDO1NBQ2hEO1FBRUQsT0FBTyxhQUFhLENBQUMsUUFBUSxDQUFDO0lBQ2xDLENBQUM7SUFFTSxVQUFVO1FBRWIsbUJBQUssQ0FBQyxHQUFHLENBQUMsbUNBQW1DLENBQUMsQ0FBQztJQUNuRCxDQUFDO0NBRUo7QUFuQkQsZ0NBbUJDIn0=","assetPath":"Assets/Runner/Script/EventsManager.ts","manifest":{"properties":[{"assembly":"","name":"OnGameOver","type":"__type","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"EventsManager","description":""},"isCompiled":true}'
+  typescriptHash: df17b541314af34ff713a8627149c442
+  onlyWriteTrigger: 0

@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: 7ba6ad592c4c8b741bde81962440a9ae
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GameOverManager_1 = require(\"./GameOverManager\");\r\nclass
+    GameOverRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start()
+    {\r\n        // Listen for when a local player is added and assign the player''s
+    Zepeto character to the zepetoCharacter variable\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    });\r\n    }\r\n    // OnTriggerEnter method is called when the object with this
+    script collides with another object that has a Collider\r\n    OnTriggerEnter(collider)
+    {\r\n        // Check if the colliding object has the \"Player\" tag\r\n       
+    if (collider.gameObject.tag == \"Player\") {\r\n            UnityEngine_1.Debug.Log(\"GameOver\");\r\n           
+    // Show the Game Over screen through GameOverManager\r\n            GameOverManager_1.default.getInstance().showGameOver();\r\n       
+    }\r\n    }\r\n}\r\nexports.default = GameOverRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU92ZXJSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lT3ZlclJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUErRTtBQUMvRSw2RUFBNkU7QUFDN0UsaURBQXNEO0FBQ3RELHVEQUFnRDtBQUVoRCxNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBRy9ELEtBQUs7UUFDSCxtSEFBbUg7UUFDbkgsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN6RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ25GLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUVELG9IQUFvSDtJQUNwSCxjQUFjLENBQUMsUUFBa0I7UUFDL0IscURBQXFEO1FBQ3JELElBQUksUUFBUSxDQUFDLFVBQVUsQ0FBQyxHQUFHLElBQUksUUFBUSxFQUFFO1lBQ3ZDLG1CQUFLLENBQUMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxDQUFDO1lBQ3RCLG9EQUFvRDtZQUNwRCx5QkFBZSxDQUFDLFdBQVcsRUFBRSxDQUFDLFlBQVksRUFBRSxDQUFDO1NBQzlDO0lBQ0gsQ0FBQztDQUNGO0FBbkJELGlDQW1CQyJ9","assetPath":"Assets/Runner/Script/GameOverRunner.ts","manifest":{"properties":[],"name":"GameOverRunner","description":""},"isCompiled":true}'
+  typescriptHash: 8556ae3e869b1587b5676141372b944a
+  onlyWriteTrigger: 0

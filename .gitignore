@@ -2,15 +2,15 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-Runner-Template/[Ll]ibrary/
-Runner-Template/[Tt]emp/
-Runner-Template/[Oo]bj/
-Runner-Template/[Bb]uild/
-Runner-Template/[Bb]uilds/
-Runner-Template/[Rr]ecordings/
-Runner-Template/[Rr]ecording/
-Runner-Template/[Ll]ogs/
-Runner-Template/[Mm]emoryCaptures/
+Runner Template/[Ll]ibrary/
+Runner Template/[Tt]emp/
+Runner Template/[Oo]bj/
+Runner Template/[Bb]uild/
+Runner Template/[Bb]uilds/
+Runner Template/[Rr]ecordings/
+Runner Template/[Rr]ecording/
+Runner Template/[Ll]ogs/
+Runner Template/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

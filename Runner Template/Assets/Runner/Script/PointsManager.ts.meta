@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: ead8befb98c617c46950c8be7330489a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    PointsManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        // Define a private variable to
+    store the points\r\n        this._Points = 0;\r\n    }\r\n    // Define a static
+    method that returns the unique instance of the class\r\n    static getInstance()
+    {\r\n        // If the instance has not been created, create a new instance and
+    return it\r\n        if (!PointsManager.instance) {\r\n            PointsManager.instance
+    = new PointsManager();\r\n            return PointsManager.instance;\r\n       
+    }\r\n        else {\r\n            // If the instance has already been created,
+    return the existing instance\r\n            return this.instance;\r\n       
+    }\r\n    }\r\n    // Define a public method that updates the amount of points
+    scored\r\n    ScorePoints(points) {\r\n        this._Points += points;\r\n   
+    }\r\n    // Define a public method that returns the amount of points scored\r\n   
+    GetPoints() {\r\n        return this._Points;\r\n    }\r\n    ResetPoints() {\r\n       
+    this._Points = 0;\r\n    }\r\n}\r\nexports.default = PointsManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRzTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlBvaW50c01hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFFdEQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUFoRTs7UUFJRSxnREFBZ0Q7UUFDeEMsWUFBTyxHQUFXLENBQUMsQ0FBQztJQTZCOUIsQ0FBQztJQTNCQyx1RUFBdUU7SUFDaEUsTUFBTSxDQUFDLFdBQVc7UUFFdkIsNEVBQTRFO1FBQzVFLElBQUksQ0FBQyxhQUFhLENBQUMsUUFBUSxFQUFFO1lBQzNCLGFBQWEsQ0FBQyxRQUFRLEdBQUcsSUFBSSxhQUFhLEVBQUUsQ0FBQztZQUM3QyxPQUFPLGFBQWEsQ0FBQyxRQUFRLENBQUM7U0FDL0I7YUFBTTtZQUVMLHlFQUF5RTtZQUN6RSxPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7U0FDdEI7SUFDSCxDQUFDO0lBRUQsa0VBQWtFO0lBQzNELFdBQVcsQ0FBQyxNQUFjO1FBQy9CLElBQUksQ0FBQyxPQUFPLElBQUksTUFBTSxDQUFDO0lBQ3pCLENBQUM7SUFFRCxrRUFBa0U7SUFDM0QsU0FBUztRQUNkLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQztJQUN0QixDQUFDO0lBRU8sV0FBVztRQUNqQixJQUFJLENBQUMsT0FBTyxHQUFDLENBQUMsQ0FBQztJQUNqQixDQUFDO0NBQ0Y7QUFsQ0QsZ0NBa0NDIn0=","assetPath":"Assets/Runner/Script/PointsManager.ts","manifest":{"properties":[],"name":"PointsManager","description":""},"isCompiled":true}'
+  typescriptHash: 440f71c105390ac0396be9cd107dfaf8
+  onlyWriteTrigger: 0

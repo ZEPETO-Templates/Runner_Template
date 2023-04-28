@@ -1,0 +1,55 @@
+fileFormatVersion: 2
+guid: 5c4ffbe5e0e29914fbaaf9589195c5d5
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    LevelGenerator_1 = require(\"./LevelGenerator\");\r\nconst GameOverManager_1
+    = require(\"./GameOverManager\");\r\nconst PointsManager_1 = require(\"./PointsManager\");\r\nconst
+    TimerManagerRunner_1 = require(\"./TimerManagerRunner\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nclass GameManagerRunner extends
+    UnityEngine_1.MonoBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this.awakeCalled = false;\r\n    }\r\n    /// <summary>\r\n    /// Function that
+    initializes the game components\r\n    /// <summary>\r\n    initializeComponents()
+    {\r\n        this.level = LevelGenerator_1.default.getInstance();\r\n       
+    this.level.Blocks = this.Blocks;\r\n        this.level.FirstBlock = this.FirstBlock;\r\n       
+    this.level.LastBlock = this.LastBlock;\r\n        this.gameOver = GameOverManager_1.default.getInstance();\r\n       
+    this.gameOver.GameOverPrefabUI = this.GameOverPrefabUI;\r\n        this.gameOver.ParentUI
+    = this.ParentUI;\r\n        this.points = PointsManager_1.default.getInstance();\r\n       
+    this.timer = TimerManagerRunner_1.default.getInstance();\r\n        this.points.ResetPoints();\r\n       
+    this.timer.ResetTimer();\r\n        this.timer.StartTimer();\r\n    }\r\n   
+    /// <summary>\r\n    /// Function that initializes the game blocks\r\n    ///
+    <summary>\r\n    initializeBlocks() {\r\n        this.level.GenerateBlock();\r\n   
+    }\r\n    /// <summary>\r\n    /// Function that calls the necessary initialization
+    functions\r\n    /// <summary>\r\n    initialize() {\r\n        this.initializeComponents();\r\n       
+    this.initializeBlocks();\r\n    }\r\n    Awake() {\r\n        this.initialize();\r\n       
+    this.startButton.onClick.AddListener(this.StartGame);\r\n    }\r\n    Start()
+    {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
+    this.zepetoCharacter.transform.Rotate(new UnityEngine_1.Vector3(0, 90, 0));\r\n           
+    this.zepetoCharacter.gameObject.tag = \"Player\";\r\n        });\r\n        UnityEngine_1.Time.timeScale
+    = 0;\r\n    }\r\n    Update() {\r\n        let time = this.timer.GetTime();\r\n       
+    let minutes = Math.floor(time / 60000).toString();\r\n        let seconds = ((time
+    % 60000)).toFixed(0).padStart(2, ''0'');\r\n        this.PointTxt.text = \"Point:
+    \" + this.points.GetPoints().toString();\r\n        this.TimeTxt.text = \"Time:
+    \" + minutes + '':'' + seconds;\r\n        ;\r\n    }\r\n    StartGame() {\r\n       
+    UnityEngine_1.Time.timeScale = 1;\r\n    }\r\n}\r\nexports.default = GameManagerRunner;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU1hbmFnZXJSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lTWFuYWdlclJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFrRjtBQUtsRixxREFBOEM7QUFDOUMsdURBQWdEO0FBQ2hELG1EQUE0QztBQUM1Qyw2REFBc0Q7QUFFdEQsNkVBQW9HO0FBRXBHLE1BQXFCLGlCQUFrQixTQUFRLDJCQUFhO0lBQTVEOztRQTJCVSxnQkFBVyxHQUFZLEtBQUssQ0FBQztJQWdGdkMsQ0FBQztJQS9FQyxhQUFhO0lBQ2IsaURBQWlEO0lBQ2pELGFBQWE7SUFDTCxvQkFBb0I7UUFDMUIsSUFBSSxDQUFDLEtBQUssR0FBRyx3QkFBYyxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQzFDLElBQUksQ0FBQyxLQUFLLENBQUMsTUFBTSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7UUFDaEMsSUFBSSxDQUFDLEtBQUssQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQztRQUN4QyxJQUFJLENBQUMsS0FBSyxDQUFDLFNBQVMsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBRXRDLElBQUksQ0FBQyxRQUFRLEdBQUcseUJBQWUsQ0FBQyxXQUFXLEVBQUUsQ0FBQztRQUM5QyxJQUFJLENBQUMsUUFBUSxDQUFDLGdCQUFnQixHQUFHLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQztRQUN2RCxJQUFJLENBQUMsUUFBUSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDO1FBRXZDLElBQUksQ0FBQyxNQUFNLEdBQUcsdUJBQWEsQ0FBQyxXQUFXLEVBQUUsQ0FBQztRQUMxQyxJQUFJLENBQUMsS0FBSyxHQUFHLDRCQUFrQixDQUFDLFdBQVcsRUFBRSxDQUFDO1FBRTlDLElBQUksQ0FBQyxNQUFNLENBQUMsV0FBVyxFQUFFLENBQUM7UUFDMUIsSUFBSSxDQUFDLEtBQUssQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUN4QixJQUFJLENBQUMsS0FBSyxDQUFDLFVBQVUsRUFBRSxDQUFDO0lBRzFCLENBQUM7SUFHRCxhQUFhO0lBQ2IsNkNBQTZDO0lBQzdDLGFBQWE7SUFDTCxnQkFBZ0I7UUFDdEIsSUFBSSxDQUFDLEtBQUssQ0FBQyxhQUFhLEVBQUUsQ0FBQztJQUM3QixDQUFDO0lBR0QsYUFBYTtJQUNiLDhEQUE4RDtJQUM5RCxhQUFhO0lBQ0wsVUFBVTtRQUNoQixJQUFJLENBQUMsb0JBQW9CLEVBQUUsQ0FBQztRQUM1QixJQUFJLENBQUMsZ0JBQWdCLEVBQUUsQ0FBQztJQUUxQixDQUFDO0lBR00sS0FBSztRQUVSLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUNuQixJQUFJLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDO0lBRXhELENBQUM7SUFFQSxLQUFLO1FBRUEsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1lBQ2hGLElBQUksQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxJQUFJLHFCQUFPLENBQUMsQ0FBQyxFQUFFLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQzdELElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLEdBQUcsR0FBQyxRQUFRLENBQUM7UUFHbEQsQ0FBQyxDQUFDLENBQUM7UUFFTCxrQkFBSSxDQUFDLFNBQVMsR0FBRyxDQUFDLENBQUM7SUFHdEIsQ0FBQztJQUVDLE1BQU07UUFDTixJQUFJLElBQUksR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLE9BQU8sRUFBWSxDQUFDO1FBQzNDLElBQUksT0FBTyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxHQUFHLEtBQUssQ0FBQyxDQUFDLFFBQVEsRUFBWSxDQUFDO1FBQzVELElBQUksT0FBTyxHQUFHLENBQUMsQ0FBQyxJQUFJLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDLENBQUMsRUFBRSxHQUFHLENBQVcsQ0FBQztRQUVwRSxJQUFJLENBQUMsUUFBUSxDQUFDLElBQUksR0FBRSxTQUFTLEdBQUUsSUFBSSxDQUFDLE1BQU0sQ0FBQyxTQUFTLEVBQUUsQ0FBQyxRQUFRLEVBQUUsQ0FBQztRQUNsRSxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksR0FBRSxRQUFRLEdBQUUsT0FBTyxHQUFHLEdBQUcsR0FBRyxPQUFPLENBQUM7UUFBQSxDQUFDO0lBRXZELENBQUM7SUFFTSxTQUFTO1FBRVosa0JBQUksQ0FBQyxTQUFTLEdBQUcsQ0FBQyxDQUFDO0lBQ3ZCLENBQUM7Q0FFSjtBQTNHRCxvQ0EyR0MifQ==","assetPath":"Assets/Runner/Script/GameManagerRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"Blocks","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"FirstBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"LastBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"GameOverPrefabUI","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"ParentUI","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"startButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"Unity.TextMeshPro","name":"PointTxt","type":"TMPro.TextMeshProUGUI","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"Unity.TextMeshPro","name":"TimeTxt","type":"TMPro.TextMeshProUGUI","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameManagerRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: a01802d34237d421ec657f3f09226ad0
+  onlyWriteTrigger: 0

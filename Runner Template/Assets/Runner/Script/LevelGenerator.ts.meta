@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 50770cb481467434a9a7d46e8856de97
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\n/**\r\n
+    * A class that generates and manages the level''s blocks.\r\n */\r\nclass LevelGenerator
+    extends UnityEngine_1.MonoBehaviour {\r\n    // Make the constructor private\r\n   
+    constructor() {\r\n        super();\r\n    }\r\n    /**\r\n     * A method to
+    get the unique instance of LevelGenerator.\r\n     * @returns The instance of
+    LevelGenerator.\r\n     */\r\n    static getInstance() {\r\n        if (!LevelGenerator.instance)
+    {\r\n            LevelGenerator.instance = new LevelGenerator();\r\n           
+    return LevelGenerator.instance;\r\n        }\r\n        else {\r\n           
+    return this.instance;\r\n        }\r\n    }\r\n    Awake() {\r\n        // This
+    method is called once at the beginning, before Start()\r\n    }\r\n    Start()
+    {\r\n        this.LastBlock = this.FirstBlock; // the last generated block is
+    the first block\r\n        this.GenerateBlock(); // generate a block\r\n    }\r\n   
+    /**\r\n     * A method to generate a block.\r\n     */\r\n    GenerateBlock()
+    {\r\n        let n = Math.floor(UnityEngine_1.Random.Range(0, this.Blocks.Length));
+    // get a random index to select a block from the Blocks array\r\n        let
+    Pos = this.LastBlock.transform.GetChild(0).transform.position; // get the position
+    of the SpawnBlockLevel of the last generated block\r\n        let block = UnityEngine_1.GameObject.Instantiate(this.Blocks[n],
+    Pos, UnityEngine_1.Quaternion.identity); // instantiate the selected block and
+    place it at the position of the SpawnBlockLevel of the last generated block\r\n       
+    this.LastBlock = block; // update the last generated block\r\n    }\r\n}\r\nexports.default
+    = LevelGenerator;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxHZW5lcmF0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMZXZlbEdlbmVyYXRvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUE4RztBQUs5Rzs7R0FFRztBQUNILE1BQXFCLGNBQWUsU0FBUSwyQkFBYTtJQVF2RCwrQkFBK0I7SUFDL0I7UUFDRSxLQUFLLEVBQUUsQ0FBQztJQUNWLENBQUM7SUFFRDs7O09BR0c7SUFDSSxNQUFNLENBQUMsV0FBVztRQUN2QixJQUFJLENBQUMsY0FBYyxDQUFDLFFBQVEsRUFBRTtZQUM1QixjQUFjLENBQUMsUUFBUSxHQUFHLElBQUksY0FBYyxFQUFFLENBQUM7WUFDL0MsT0FBTyxjQUFjLENBQUMsUUFBUSxDQUFDO1NBQ2hDO2FBQ0k7WUFDSCxPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7U0FDdEI7SUFDSCxDQUFDO0lBRUQsS0FBSztRQUNILDhEQUE4RDtJQUNoRSxDQUFDO0lBRUQsS0FBSztRQUNILElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDLDhDQUE4QztRQUNoRixJQUFJLENBQUMsYUFBYSxFQUFFLENBQUMsQ0FBQyxtQkFBbUI7SUFDM0MsQ0FBQztJQUVEOztPQUVHO0lBQ0ksYUFBYTtRQUNsQixJQUFJLENBQUMsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLG9CQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBQyxJQUFJLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFXLENBQUMsQ0FBQyw2REFBNkQ7UUFDL0gsSUFBSSxHQUFHLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxzRUFBc0U7UUFDekksSUFBSSxLQUFLLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsRUFBRSxHQUFHLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQWUsQ0FBQyxDQUFDLGlIQUFpSDtRQUM3TSxJQUFJLENBQUMsU0FBUyxHQUFHLEtBQW1CLENBQUMsQ0FBQyxrQ0FBa0M7SUFDMUUsQ0FBQztDQUNGO0FBN0NELGlDQTZDQyJ9","assetPath":"Assets/Runner/Script/LevelGenerator.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"Blocks","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"FirstBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"VelocitiBlock","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"test","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"LastBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"LevelGenerator","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: d897431ea1bd7c13669bf7fe700984ec
+  onlyWriteTrigger: 0
