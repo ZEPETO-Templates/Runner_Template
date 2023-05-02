@@ -97,7 +97,7 @@ export default class GameManagerRunner extends MonoBehaviour {
            
         });
 
-      Time.timeScale = 0;
+     // Time.timeScale = 0;
      
 
    }

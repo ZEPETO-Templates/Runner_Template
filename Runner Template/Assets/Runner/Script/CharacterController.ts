@@ -13,7 +13,10 @@ export default class CharacterController extends ZepetoScriptBehaviour {
     Start() {
      
 
-       this.startButton.onClick.AddListener(this.SpawnCharacter);
+       //this.startButton.onClick.AddListener(this.SpawnCharacter);
+
+       this.SpawnCharacter();
+
     }
 
   public  SpawnCharacter():void{
