@@ -45,6 +45,7 @@ Name| Functionality
 - **Point Target:** Prefab which adds points when colliding with the player, contains the script PointTargetRunner. Your collider must be trigger
 <img width="700" alt="image" src="./docs/images/cap_7.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_8.png"></img>
+-----------------------------
 Name| Functionality  
 ------------ | ------------ 
 `Points Value`  | Number of points to be scored.
