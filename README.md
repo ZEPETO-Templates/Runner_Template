@@ -17,9 +17,7 @@ Check that it is in scene. This script instantiates all the singletons that Runn
 needs, it also loads the variables of the singleton instances, that's why we pass all
 the data here.
 <img width="700" alt="image" src="./docs/images/cap_1.png"></img>    
-
-
-
+~~~~~~~~~~~~~~~~~~~~~~~~
 Name |  Functionality
 ------------- | -------------
 `Blocks`  | Array of prefab blocks that will generate the level, these will be set randomly.
@@ -27,8 +25,7 @@ Name |  Functionality
 `Last Block` | Last Block which is updated to know where to instantiate the next one.
 `Game Over Prefab UI`| Prefab of the game over screen. it appears when we collide with an obstacle..
 `Parent UI`| The parent where the GameOverPrefabUI is to be instantiated, must have a canvas.
-                    
-
+ ~~~~~~~~~~~~~~~~~~~~~~~~                  
 
 ## 🚧 Builds
 - **Block:** Prefab that is instantiated to generate the runner level. contains 2 scripts: MoveBlock, BlockLevel.
