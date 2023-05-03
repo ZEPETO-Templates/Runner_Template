@@ -16,8 +16,8 @@ Now, are you ready to start?
 Check that it is in scene. This script instantiates all the singletons that Runner
 needs, it also loads the variables of the singleton instances, that's why we pass all
 the data here.
-               <img width="700" alt="image" src="./docs/images/cap_1.png"></img>    
-
+<img width="700" alt="image" src="./docs/images/cap_1.png"></img>    
+-----------------------------
 Name |  Functionality
 ------------- | -------------
 `Blocks`  | Array of prefab blocks that will generate the level, these will be set randomly.
