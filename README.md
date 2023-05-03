@@ -30,6 +30,8 @@ Name |  Functionality
 - **Block:** Prefab that is instantiated to generate the runner level. contains 2 scripts: MoveBlock, BlockLevel.
 <img width="700" alt="image" src="./docs/images/cap_2.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_3.png"></img>
+
+-----------------------------
 Name| Functionality  
 ------------ | ------------ 
 `Speed`  | Speed at which the block will move towards the player.
