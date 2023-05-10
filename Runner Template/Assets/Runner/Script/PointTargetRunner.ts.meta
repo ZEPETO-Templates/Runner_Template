@@ -20,17 +20,12 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
-    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
-    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst PointsManager_1 = require(\"./PointsManager\");\r\nclass
-    PointTargetRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
-    {\r\n        super(...arguments);\r\n        // The points value that the target
-    will award\r\n        this.PointsValue = 10;\r\n    }\r\n    Start() {\r\n       
-    // Add a listener to know when a local player is added\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
-    => {\r\n            this.zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
-    });\r\n    }\r\n    OnTriggerEnter(collider) {\r\n        // Add the corresponding
-    points to the PointsManager instance\r\n        PointsManager_1.default.getInstance().ScorePoints(this.PointsValue);\r\n       
-    // Destroy the target\r\n        UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
-    // Emit a particle effect\r\n        this.ParticleSystem.GetComponent($typeof(UnityEngine_1.ParticleSystem)).Emit(30);\r\n   
-    }\r\n}\r\nexports.default = PointTargetRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRUYXJnZXRSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb2ludFRhcmdldFJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUE4RjtBQUM5Riw2RUFBNkU7QUFDN0UsaURBQXNEO0FBQ3RELG1EQUE0QztBQUU1QyxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFBcEU7O1FBQ0UsOENBQThDO1FBQ3ZDLGdCQUFXLEdBQVcsRUFBRSxDQUFDO0lBcUJsQyxDQUFDO0lBZkMsS0FBSztRQUNILHNEQUFzRDtRQUN0RCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3pELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDbkYsQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDO0lBRUQsY0FBYyxDQUFDLFFBQWtCO1FBQy9CLDZEQUE2RDtRQUM3RCx1QkFBYSxDQUFDLFdBQVcsRUFBRSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUM7UUFDMUQscUJBQXFCO1FBQ3JCLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUNwQyx5QkFBeUI7UUFDekIsSUFBSSxDQUFDLGNBQWMsQ0FBQyxZQUFZLFNBQUMsNEJBQWMsR0FBSSxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDOUQsQ0FBQztDQUNGO0FBdkJELG9DQXVCQyJ9","assetPath":"Assets/Runner/Script/PointTargetRunner.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"PointsValue","type":"System.Single","isArray":false,"initValue":["10"],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"ParticleSystem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PointTargetRunner","description":""},"isCompiled":true}'
-  typescriptHash: a50ff1acfaa600d7912876045e5ab9d1
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ScoreManager_1 = require(\"./ScoreManager\");\r\nclass
+    PointTargetRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
+    {\r\n        this._pointsValue = 10;\r\n    }\r\n    OnTriggerEnter(collider)
+    {\r\n        ScoreManager_1.default.Instance.ScorePoints(this._pointsValue);\r\n       
+    this.particleSystem.GetComponent($typeof(UnityEngine_1.ParticleSystem)).Emit(30);\r\n       
+    UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n    }\r\n}\r\nexports.default
+    = PointTargetRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRUYXJnZXRSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb2ludFRhcmdldFJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFtRTtBQUNuRSxpREFBc0Q7QUFDdEQsaURBQTBDO0FBRTFDLE1BQXFCLGlCQUFrQixTQUFRLHFDQUFxQjtJQU16RCxLQUFLO1FBRVIsSUFBSSxDQUFDLFlBQVksR0FBRyxFQUFFLENBQUM7SUFDM0IsQ0FBQztJQUVELGNBQWMsQ0FBQyxRQUFrQjtRQUU3QixzQkFBWSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBQ3JELElBQUksQ0FBQyxjQUFjLENBQUMsWUFBWSxTQUFDLDRCQUFjLEdBQUksSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBQzVELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN4QyxDQUFDO0NBRUo7QUFsQkQsb0NBa0JDIn0=","assetPath":"Assets/Runner/Script/PointTargetRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"particleSystem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PointTargetRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 018e8c0347ba29393c6546154aa872e7
   onlyWriteTrigger: 0

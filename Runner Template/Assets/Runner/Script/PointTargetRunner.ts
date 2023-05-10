@@ -1,29 +1,23 @@
-import { Collider, GameObject, ParticleSystem, Quaternion, Time, Vector3 } from 'UnityEngine';
-import { ZepetoCharacter, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import { Collider, GameObject, ParticleSystem } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
-import PointsManager from './PointsManager';
+import ScoreManager from './ScoreManager';
 
-export default class PointTargetRunner extends ZepetoScriptBehaviour {
-  // The points value that the target will award
-  public PointsValue: number = 10;
-  // The GameObject that will hold the particle effect
-  public ParticleSystem: GameObject;
-  // The character controlled by the local player
-  private zepetoCharacter: ZepetoCharacter;
+export default class PointTargetRunner extends ZepetoScriptBehaviour 
+{
 
-  Start() {
-    // Add a listener to know when a local player is added
-    ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
-      this.zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
-    });
-  }
+    public particleSystem: GameObject;
+    private _pointsValue: number;
 
-  OnTriggerEnter(collider: Collider) {
-    // Add the corresponding points to the PointsManager instance
-    PointsManager.getInstance().ScorePoints(this.PointsValue);
-    // Destroy the target
-    GameObject.Destroy(this.gameObject);
-    // Emit a particle effect
-    this.ParticleSystem.GetComponent<ParticleSystem>().Emit(30);
-  }
+    public Awake(): void 
+    {
+        this._pointsValue = 10;
+    }
+
+    OnTriggerEnter(collider: Collider) 
+    {
+        ScoreManager.Instance.ScorePoints(this._pointsValue);
+        this.particleSystem.GetComponent<ParticleSystem>().Emit(30);
+        GameObject.Destroy(this.gameObject);
+    }
+  
 }

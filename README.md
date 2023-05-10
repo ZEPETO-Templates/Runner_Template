@@ -18,13 +18,13 @@ needs, it also loads the variables of the singleton instances, that's why we pas
 the data here.
 <img width="700" alt="image" src="./docs/images/cap_1.png"></img>    
 -----------------------------
-Name |  Functionality
-------------- | -------------
-`Blocks`  | Array of prefab blocks that will generate the level, these will be set randomly.
-`First Block` | The first block that starts the level is the only one active in the scene at the beginning
-`Last Block` | Last Block which is updated to know where to instantiate the next one.
-`Game Over Prefab UI`| Prefab of the game over screen. it appears when we collide with an obstacle..
-`Parent UI`| The parent where the GameOverPrefabUI is to be instantiated, must have a canvas.              
+| Name                  | Functionality                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| `Blocks`              | Array of prefab blocks that will generate the level, these will be set randomly.           |
+| `First Block`         | The first block that starts the level is the only one active in the scene at the beginning |
+| `Last Block`          | Last Block which is updated to know where to instantiate the next one.                     |
+| `Game Over Prefab UI` | Prefab of the game over screen. it appears when we collide with an obstacle..              |
+| `Parent UI`           | The parent where the GameOverPrefabUI is to be instantiated, must have a canvas.           |
 
 ## 🚧 Builds
 - **Block:** Prefab that is instantiated to generate the runner level. contains 2 scripts: MoveBlock, BlockLevel.
@@ -32,10 +32,10 @@ Name |  Functionality
 <img width="700" alt="image" src="./docs/images/cap_3.png"></img>
 
 -----------------------------
-Name| Functionality  
------------- | ------------ 
-`Speed`  | Speed at which the block will move towards the player.
-`Spawn Block Level`  | Transform from where the next Block is to be instantiated.
+| Name                | Functionality                                              |
+| ------------------- | ---------------------------------------------------------- |
+| `Speed`             | Speed at which the block will move towards the player.     |
+| `Spawn Block Level` | Transform from where the next Block is to be instantiated. |
                     
 
 - **SpawnBlock:** It is an empty game object, which goes at the end of the block and its transform will be passed to BlockLevel, to know where to instantiate the next block. It also has a collider Trigger to know when the player has finished passing over it, and instantiate the next block. **It must also be the first child of block.**
@@ -46,10 +46,10 @@ Name| Functionality
 <img width="700" alt="image" src="./docs/images/cap_7.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_8.png"></img>
 -----------------------------
-Name| Functionality  
------------- | ------------ 
-`Points Value`  | Number of points to be scored.
-`Particle System`  | Effect of particulates when collisinating
+| Name              | Functionality                             |
+| ----------------- | ----------------------------------------- |
+| `Points Value`    | Number of points to be scored.            |
+| `Particle System` | Effect of particulates when collisinating |
                     
 - **Obstacles:** A game object that upon collision with the player triggers the game over event. Your collider must be trigger. contains the script: GameOverRunner Add it to the scene and then add the object you want as a child of the prefab.
 <img width="700" alt="image" src="./docs/images/cap_9.png"></img>
@@ -58,11 +58,11 @@ Name| Functionality
 <img width="700" alt="image" src="./docs/images/cap_11.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_12.png"></img>
 
-|   |   |
-| ------------ | ------------ |
-| `Max Speed`   |  Maximum speed of movement that the object could acquire
-| `Min Speed`   |  Minimum speed of movement that the object could acquire
-| `Height`   |  Maximum height you can climb from your starting position
+|             |                                                          |
+| ----------- | -------------------------------------------------------- |
+| `Max Speed` | Maximum speed of movement that the object could acquire  |
+| `Min Speed` | Minimum speed of movement that the object could acquire  |
+| `Height`    | Maximum height you can climb from your starting position |
 
 
 

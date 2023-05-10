@@ -1,78 +1,50 @@
-import { Canvas, Debug, GameObject, Time,Transform } from 'UnityEngine';
-import { Slider } from 'UnityEngine.UI';
+import { GameObject, Time } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import EventsManager from './EventsManager';
+import GameManagerRunner from './GameManagerRunner';
 
+export default class TimerManagerRunner extends ZepetoScriptBehaviour 
+{
 
-export default class TimerManagerRunner extends ZepetoScriptBehaviour {
-
-      private static instance: TimerManagerRunner;
+    public static Instance: TimerManagerRunner;
    
-   
-    private _isRunning: boolean = false; // If timer is running
-    
-     private startTime: number;
+    private startTime: number;
     private currentTime: number;
 
-
-     public static getInstance(): TimerManagerRunner {
-        if (!TimerManagerRunner.instance) {
-            TimerManagerRunner.instance = new TimerManagerRunner();
-              return TimerManagerRunner.instance;
-        }
-        else{
-            return this.instance;
-        }
-      
+    public Awake(): void 
+    {
+      if (TimerManagerRunner.Instance == null) TimerManagerRunner.Instance = this;
+      else GameObject.Destroy(this);
     }
 
-
-
-    Start()
+    Start() 
     {
         this.ResetTimer();
         this.StartTimer();
     }
 
-    Update()
+    public StartTimer() 
     {
-      
+        this.startTime = Time.time;
     }
 
-    public StartTimer()
-    {
-        this._isRunning = true;
-       this.startTime= Time.time;
-    }
-
-    private StopTimer()
-    {
-        this._isRunning = false;
-       
-    }
-
-    public ResetTimer()
+    public ResetTimer() 
     {
         this.currentTime = 0;
-        this._isRunning = false;
     }
 
-   
-
-    /// <summary>
-    /// Get Time Remaining
-    /// </summary>
-    public GetTime(): number
+    private GetTime(): number 
     {
-    this.currentTime= Time.time - this.startTime;
+        this.currentTime = Time.time - this.startTime;
         return this.currentTime;
     }
 
-    /// <summary>
-    /// Get if time is running
-    /// </summary>
-    public GetIsRunning(): boolean
+    public GetTimeFormated(): string
     {
-        return this._isRunning;
+        let time = TimerManagerRunner.Instance.GetTime() as number;
+        let minutes = Math.floor(time / 60000).toString() as string;
+        let seconds = ((time % 60000)).toFixed(0).padStart(2, '0') as string;
+
+        return minutes + ':' + seconds;
     }
+    
 }

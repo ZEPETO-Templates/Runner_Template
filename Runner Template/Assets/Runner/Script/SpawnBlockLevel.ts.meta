@@ -19,20 +19,11 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst __UnityEngine__ = require(\"UnityEngine\");\r\nconst
-    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\n//
-    Import the LevelGenerator class\r\nconst LevelGenerator_1 = require(\"./LevelGenerator\");\r\n//
-    Define SpawnBlockLevel class that extends ZepetoScriptBehaviour\r\nclass SpawnBlockLevel
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        //
-    Get the instance of LevelGenerator\r\n        this.level = LevelGenerator_1.default.getInstance();\r\n   
-    }\r\n    // Called when the collider enters into contact with another collider\r\n   
-    OnTriggerEnter(collider) {\r\n        // Generate a new block of level\r\n       
-    if (this.level != null)\r\n            this.level.GenerateBlock();\r\n       
-    // Delete the block after 5 seconds\r\n        setTimeout(() => this.DeleteBlock(),
-    2000);\r\n    }\r\n    // Delete the current block\r\n    DeleteBlock() {\r\n       
-    if (__UnityEngine__.Object.op_Inequality(this.gameObject.transform.parent.gameObject,
-    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject.transform.parent.gameObject);\r\n   
-    }\r\n}\r\nexports.default = SpawnBlockLevel;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3Bhd25CbG9ja0xldmVsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU3Bhd25CbG9ja0xldmVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUFrRjtBQUVsRixpREFBc0Q7QUFFdEQsa0NBQWtDO0FBQ2xDLHFEQUE4QztBQUU5QyxrRUFBa0U7QUFDbEUsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFLbEUsS0FBSztRQUNMLHFDQUFxQztRQUNyQyxJQUFJLENBQUMsS0FBSyxHQUFHLHdCQUFjLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDMUMsQ0FBQztJQUVELHFFQUFxRTtJQUNyRSxjQUFjLENBQUMsUUFBa0I7UUFDakMsZ0NBQWdDO1FBQ2hDLElBQUcsSUFBSSxDQUFDLEtBQUssSUFBRSxJQUFJO1lBQ25CLElBQUksQ0FBQyxLQUFLLENBQUMsYUFBYSxFQUFFLENBQUM7UUFDM0IsbUNBQW1DO1FBQ25DLFVBQVUsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFDM0MsQ0FBQztJQUVELDJCQUEyQjtJQUMzQixXQUFXO1FBQ1YsMkJBRzhoVSxhQUFjLENBSHhpVSxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsVUFBVSxFQUFHLElBQUk7WUFDdkQsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsTUFBTSxDQUFDLFVBQVUsQ0FBQyxDQUFDO0lBQ2hFLENBQUM7Q0FDQTtBQXhCRCxrQ0F3QkMifQ==","assetPath":"Assets/Runner/Script/SpawnBlockLevel.ts","manifest":{"properties":[{"assembly":"","name":"level","type":"C:/Users/Usuario/Documents/GitHub/zepeto-runner/Runner
-    Template/Assets/Runner/Script/LevelGenerator.default","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"SpawnBlockLevel","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 2130763b6c34d917e01a36a4c28396e8
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    LevelGenerator_1 = require(\"./LevelGenerator\");\r\nclass SpawnBlockLevel extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(collider) {\r\n       
+    if (collider.CompareTag(\"Player\")) {\r\n            LevelGenerator_1.default.Instance.GenerateBlock();\r\n       
+    }\r\n        if (collider.CompareTag(\"End\")) {\r\n            LevelGenerator_1.default.Instance.RemoveLastBlock();\r\n       
+    }\r\n    }\r\n}\r\nexports.default = SpawnBlockLevel;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3Bhd25CbG9ja0xldmVsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU3Bhd25CbG9ja0xldmVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBQ3RELHFEQUE4QztBQUU5QyxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQUc5RCxjQUFjLENBQUMsUUFBa0I7UUFFN0IsSUFBRyxRQUFRLENBQUMsVUFBVSxDQUFDLFFBQVEsQ0FBQyxFQUNoQztZQUNJLHdCQUFjLENBQUMsUUFBUSxDQUFDLGFBQWEsRUFBRSxDQUFDO1NBQzNDO1FBRUQsSUFBRyxRQUFRLENBQUMsVUFBVSxDQUFDLEtBQUssQ0FBQyxFQUM3QjtZQUNJLHdCQUFjLENBQUMsUUFBUSxDQUFDLGVBQWUsRUFBRSxDQUFDO1NBQzdDO0lBQ0wsQ0FBQztDQUVKO0FBaEJELGtDQWdCQyJ9","assetPath":"Assets/Runner/Script/SpawnBlockLevel.ts","manifest":{"properties":[],"name":"SpawnBlockLevel","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: a5be42ab1a9b1420c4f6819acc5b5bde
   onlyWriteTrigger: 0

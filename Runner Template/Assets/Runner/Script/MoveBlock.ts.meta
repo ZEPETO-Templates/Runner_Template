@@ -18,15 +18,19 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
-    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nclass MoveBlock extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor() {\\r\\n       
-    super(...arguments);\\r\\n        this.speed = 4; // velocidad de movimiento
-    en el eje X\\r\\n    }\\r\\n    Update() {\\r\\n        // actualiza la posici\uFFFDn
-    en el eje X para mover el objeto hacia la izquierda\\r\\n        this.transform.position
-    = UnityEngine_1.Vector3.op_Addition(this.transform.position, UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
-    this.speed), UnityEngine_1.Time.deltaTime));\\r\\n    }\\r\\n}\\r\\nexports.default
-    = MoveBlock;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW92ZUJsb2NrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTW92ZUJsb2NrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXVEO0FBQ3ZELGlEQUFxRDtBQUVyRCxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBQTVEOztRQUNTLFVBQUssR0FBVyxDQUFDLENBQUMsQ0FBQyxzQ0FBc0M7SUFNbEUsQ0FBQztJQUpDLE1BQU07UUFDSiw0RUFBNEU7UUFDNUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBUmxCLHFCQUFPLENBVzh5cUIsV0FBWSxDQUh0MHFCLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxFQVJsQixxQkFBTyxDQVc4a3JCLFdBQVksQ0FYam1yQixxQkFBTyxDQVc4a3JCLFdBQVksQ0FIM2tyQixxQkFBTyxDQUFDLElBQUksRUFBRyxJQUFJLENBQUMsS0FBSyxHQUFHLGtCQUFJLENBQUMsU0FBUyxHQUFDO0lBQ3hFLENBQUM7Q0FDRjtBQVBELDRCQU9DIn0=\",\"assetPath\":\"Assets/Runner/Script/MoveBlock.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"speed\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[\"4\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"MoveBlock\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: 3f36f3492e88737cf38cfff9688a993a
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst BlockPool_1 = require(\"./BlockPool\");\r\nclass
+    MoveBlock extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n       
+    this.speed = 4;\r\n        this.isMoving = false;\r\n    }\r\n    Update() {\r\n       
+    if (this.isMoving) {\r\n            this.transform.position = UnityEngine_1.Vector3.op_Addition(this.transform.position,
+    UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
+    this.speed), UnityEngine_1.Time.deltaTime));\r\n        }\r\n    }\r\n    SetMoving(value)
+    {\r\n        this.isMoving = value;\r\n    }\r\n    ReturnToPool() {\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(this.blockPool, null))
+    {\r\n            this.blockPool.returnBlock(this.gameObject);\r\n        }\r\n       
+    else {\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = MoveBlock;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW92ZUJsb2NrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTW92ZUJsb2NrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXdEO0FBQ3hELGlEQUFxRDtBQUNyRCwyQ0FBb0M7QUFFcEMsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQVFqRCxLQUFLO1FBRVIsSUFBSSxDQUFDLEtBQUssR0FBRyxDQUFDLENBQUM7UUFDZixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0lBRUQsTUFBTTtRQUVGLElBQUcsSUFBSSxDQUFDLFFBQVEsRUFDaEI7WUFDSSxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsR0F0QjFCLHFCQUFPLENBMkNpMHBCLFdBQVksQ0FyQmoxcEIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBdEIxQixxQkFBTyxDQTJDaW1xQixXQUFZLENBM0NwbnFCLHFCQUFPLENBMkNpbXFCLFdBQVksQ0FyQnRscUIscUJBQU8sQ0FBQyxJQUFJLEVBQUcsSUFBSSxDQUFDLEtBQUssR0FBRyxrQkFBSSxDQUFDLFNBQVMsR0FBQztTQUN6RTtJQUNMLENBQUM7SUFFTSxTQUFTLENBQUMsS0FBVTtRQUV2QixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0lBRU0sWUFBWTtRQUVmLElBaENDLHFDQUFxQixDQTBDa2pNLGFBQWMsQ0FWbmxNLElBQUksQ0FBQyxTQUFTLEVBQUksSUFBSSxHQUN6QjtZQUNJLElBQUksQ0FBQyxTQUFTLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztTQUMvQzthQUVEO1lBQ0ksd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3ZDO0lBQ0wsQ0FBQztDQUVKO0FBdkNELDRCQXVDQyJ9","assetPath":"Assets/Runner/Script/MoveBlock.ts","manifest":{"properties":[{"assembly":"","name":"blockPool","type":"D:/00
+    - HERNAN - PROFESIONAL/CAPTIVAR/zepeto-runner/Runner Template/Assets/Runner/Script/BlockPool.default","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"speed","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"isMoving","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"MoveBlock","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 38e0d9d736d09efa9c5ecdc128c7c461
   onlyWriteTrigger: 0

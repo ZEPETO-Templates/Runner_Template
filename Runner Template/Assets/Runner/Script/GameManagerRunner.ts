@@ -1,120 +1,74 @@
-import { GameObject, MonoBehaviour, Transform, Vector3, Time } from 'UnityEngine';
-import { Button } from 'UnityEngine.UI';
-import { TextMeshProUGUI } from 'TMPro';
-import BlockLevel from './BlockLevel';
-import SpawnBlockLevel from './SpawnBlockLevel';
-import LevelGenerator from './LevelGenerator';
-import GameOverManager from './GameOverManager';
-import PointsManager from './PointsManager';
+import { GameObject, MonoBehaviour, Vector3 } from 'UnityEngine';
+import { SpawnInfo, ZepetoPlayers, ZepetoCharacter } from 'ZEPETO.Character.Controller';
+import { WorldService } from 'ZEPETO.World';
 import TimerManagerRunner from './TimerManagerRunner';
-import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { SpawnInfo, ZepetoPlayers, LocalPlayer,ZepetoCharacter } from 'ZEPETO.Character.Controller';
+import LevelGenerator from './LevelGenerator';
+import ScoreManager from './ScoreManager';
+import UIManager from './UIManager';
 
-export default class GameManagerRunner extends MonoBehaviour {
+export default class GameManagerRunner extends MonoBehaviour 
+{
 
-  
+    public static Instance: GameManagerRunner;
 
-  public Blocks: GameObject[];
-  public FirstBlock: GameObject;
-  public LastBlock: GameObject;
+    public isGameRunning: bool;
+    public playerSpawnPoint: GameObject;
+    private _zepetoCharacter: ZepetoCharacter;
 
-  
-  public GameOverPrefabUI: GameObject;
-  public ParentUI: Transform;
-
-  public startButton: Button; 
-
+    public Awake(): void 
+    {
+        if (GameManagerRunner.Instance == null) GameManagerRunner.Instance = this;
+        else GameObject.Destroy(this);
+    }
     
-    public PointTxt: TextMeshProUGUI; 
-     public TimeTxt: TextMeshProUGUI; 
-
-  private gameOver: GameOverManager;
-  private level: LevelGenerator;
-  private points: PointsManager;
-  private timer: TimerManagerRunner;
-   private zepetoCharacter: ZepetoCharacter;
-
-
-
-
-  private awakeCalled: boolean = false;
-  /// <summary>
-  /// Function that initializes the game components
-  /// <summary>
-  private initializeComponents(): void {
-    this.level = LevelGenerator.getInstance();
-    this.level.Blocks = this.Blocks;
-    this.level.FirstBlock = this.FirstBlock;
-    this.level.LastBlock = this.LastBlock;
-
-    this.gameOver = GameOverManager.getInstance();
-    this.gameOver.GameOverPrefabUI = this.GameOverPrefabUI;
-    this.gameOver.ParentUI = this.ParentUI;
-
-    this.points = PointsManager.getInstance();
-    this.timer = TimerManagerRunner.getInstance();
-
-    this.points.ResetPoints();
-    this.timer.ResetTimer();
-    this.timer.StartTimer();
-
- 
-  }
-
-
-  /// <summary>
-  /// Function that initializes the game blocks
-  /// <summary>
-  private initializeBlocks(): void {
-    this.level.GenerateBlock();
-  }
-
-
-  /// <summary>
-  /// Function that calls the necessary initialization functions
-  /// <summary>
-  private initialize(): void {
-    this.initializeComponents();
-    this.initializeBlocks();
-    
-  }
-
-  
-  public Awake(): void {
-   
-      this.initialize();
-     this.startButton.onClick.AddListener(this.StartGame);
-      
-  }
-
-   Start() {
-     
+    Start() 
+    {
+        // Instance of the player zepeto
+        ZepetoPlayers.instance.CreatePlayerWithUserId(WorldService.userId, new SpawnInfo(), true);
+        
+        // The instantiation can take a few seconds, the following lines are executed once this happens
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
-            this.zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
-             this.zepetoCharacter.transform.Rotate(new Vector3(0, 90, 0));
-             this.zepetoCharacter.gameObject.tag="Player";
-             
-           
+            this._zepetoCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
+            
+            this._zepetoCharacter.transform.position = this.playerSpawnPoint.transform.position;
+            this._zepetoCharacter.transform.Rotate(new Vector3(0, 90, 0));
+            this._zepetoCharacter.gameObject.tag = "Player";
+            this._zepetoCharacter.gameObject.SetActive(false);
+
+            UIManager.Instance.OnStart();
         });
-
-     // Time.timeScale = 0;
-     
-
-   }
- 
-     Update(){
-     let time = this.timer.GetTime() as number;
-    let minutes = Math.floor(time / 60000).toString() as string;
-    let seconds = ((time % 60000)).toFixed(0).padStart(2, '0') as string;
-
-     this.PointTxt.text= "Point: "+ this.points.GetPoints().toString();
-     this.TimeTxt.text= "Time: "+ minutes + ':' + seconds;;
-
+      
     }
 
-    public StartGame(){
-     
-        Time.timeScale = 1;
+    // When starting the game, the parameters are restored and the blocks start moving
+    public OnGameStart() 
+    {
+        TimerManagerRunner.Instance.StartTimer();
+        LevelGenerator.Instance.InitializeLevel();
+        
+        this._zepetoCharacter.gameObject.SetActive(true);
+        this._zepetoCharacter.Teleport(this.playerSpawnPoint.transform.position, this.playerSpawnPoint.transform.rotation);
+        
+        setTimeout(() => LevelGenerator.Instance.SetBlocksMovement(true), 1500);
+        
+        UIManager.Instance.OnStartGame();
     }
-  
+    
+    // This method resets the entire game state and will start the level again
+    public OnGameReset()
+    {
+        LevelGenerator.Instance.ResetLevel();
+        ScoreManager.Instance.ResetPoints();
+        TimerManagerRunner.Instance.ResetTimer();
+
+        this.OnGameStart();
+    }
+
+    // At the end of the game, the blocks are stopped and the UI is updated
+    public OnGameOver()
+    {
+        LevelGenerator.Instance.SetBlocksMovement(false);
+        UIManager.Instance.OnGameOver();
+    }
+
 }

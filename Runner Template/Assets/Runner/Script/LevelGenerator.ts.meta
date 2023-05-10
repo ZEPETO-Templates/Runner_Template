@@ -19,26 +19,42 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\n/**\r\n
-    * A class that generates and manages the level''s blocks.\r\n */\r\nclass LevelGenerator
-    extends UnityEngine_1.MonoBehaviour {\r\n    // Make the constructor private\r\n   
-    constructor() {\r\n        super();\r\n    }\r\n    /**\r\n     * A method to
-    get the unique instance of LevelGenerator.\r\n     * @returns The instance of
-    LevelGenerator.\r\n     */\r\n    static getInstance() {\r\n        if (!LevelGenerator.instance)
-    {\r\n            LevelGenerator.instance = new LevelGenerator();\r\n           
-    return LevelGenerator.instance;\r\n        }\r\n        else {\r\n           
-    return this.instance;\r\n        }\r\n    }\r\n    Awake() {\r\n        // This
-    method is called once at the beginning, before Start()\r\n    }\r\n    Start()
-    {\r\n        this.LastBlock = this.FirstBlock; // the last generated block is
-    the first block\r\n        this.GenerateBlock(); // generate a block\r\n    }\r\n   
-    /**\r\n     * A method to generate a block.\r\n     */\r\n    GenerateBlock()
-    {\r\n        let n = Math.floor(UnityEngine_1.Random.Range(0, this.Blocks.Length));
-    // get a random index to select a block from the Blocks array\r\n        let
-    Pos = this.LastBlock.transform.GetChild(0).transform.position; // get the position
-    of the SpawnBlockLevel of the last generated block\r\n        let block = UnityEngine_1.GameObject.Instantiate(this.Blocks[n],
-    Pos, UnityEngine_1.Quaternion.identity); // instantiate the selected block and
-    place it at the position of the SpawnBlockLevel of the last generated block\r\n       
-    this.LastBlock = block; // update the last generated block\r\n    }\r\n}\r\nexports.default
-    = LevelGenerator;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxHZW5lcmF0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMZXZlbEdlbmVyYXRvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUE4RztBQUs5Rzs7R0FFRztBQUNILE1BQXFCLGNBQWUsU0FBUSwyQkFBYTtJQVF2RCwrQkFBK0I7SUFDL0I7UUFDRSxLQUFLLEVBQUUsQ0FBQztJQUNWLENBQUM7SUFFRDs7O09BR0c7SUFDSSxNQUFNLENBQUMsV0FBVztRQUN2QixJQUFJLENBQUMsY0FBYyxDQUFDLFFBQVEsRUFBRTtZQUM1QixjQUFjLENBQUMsUUFBUSxHQUFHLElBQUksY0FBYyxFQUFFLENBQUM7WUFDL0MsT0FBTyxjQUFjLENBQUMsUUFBUSxDQUFDO1NBQ2hDO2FBQ0k7WUFDSCxPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7U0FDdEI7SUFDSCxDQUFDO0lBRUQsS0FBSztRQUNILDhEQUE4RDtJQUNoRSxDQUFDO0lBRUQsS0FBSztRQUNILElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDLDhDQUE4QztRQUNoRixJQUFJLENBQUMsYUFBYSxFQUFFLENBQUMsQ0FBQyxtQkFBbUI7SUFDM0MsQ0FBQztJQUVEOztPQUVHO0lBQ0ksYUFBYTtRQUNsQixJQUFJLENBQUMsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLG9CQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBQyxJQUFJLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFXLENBQUMsQ0FBQyw2REFBNkQ7UUFDL0gsSUFBSSxHQUFHLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxzRUFBc0U7UUFDekksSUFBSSxLQUFLLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsRUFBRSxHQUFHLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQWUsQ0FBQyxDQUFDLGlIQUFpSDtRQUM3TSxJQUFJLENBQUMsU0FBUyxHQUFHLEtBQW1CLENBQUMsQ0FBQyxrQ0FBa0M7SUFDMUUsQ0FBQztDQUNGO0FBN0NELGlDQTZDQyJ9","assetPath":"Assets/Runner/Script/LevelGenerator.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"Blocks","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"FirstBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"VelocitiBlock","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"test","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"LastBlock","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"LevelGenerator","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: d897431ea1bd7c13669bf7fe700984ec
+    { value: true });\r\nconst __UnityEngine__ = require(\"UnityEngine\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst GameManagerRunner_1 = require(\"./GameManagerRunner\");\r\nconst
+    BlockPool_1 = require(\"./BlockPool\");\r\nconst MoveBlock_1 = require(\"./MoveBlock\");\r\nclass
+    LevelGenerator extends UnityEngine_1.MonoBehaviour {\r\n    Awake() {\r\n       
+    if (LevelGenerator.Instance == null)\r\n            LevelGenerator.Instance =
+    this;\r\n        else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n   
+    }\r\n    // The first block is activated and positioned, the rest are requested
+    to their respective pools\r\n    InitializeLevel() {\r\n        this._currentBlocksShowed
+    = [];\r\n        let startBlocSpawnTransform = this.startBlockSpawnPoint.transform;\r\n       
+    this.startBlockPrefab.SetActive(true);\r\n        this.startBlockPrefab.transform.position
+    = startBlocSpawnTransform.position;\r\n        this._firstBlock = this.startBlockPrefab;\r\n       
+    this._currentBlocksShowed.push(this._firstBlock);\r\n        this._lastBlock
+    = this._firstBlock;\r\n        this.GenerateBlock();\r\n    }\r\n    // To generate
+    a block, a random block pool is selected and then a block is requested\r\n   
+    GenerateBlock() {\r\n        let n = Math.floor(UnityEngine_1.Random.Range(0,
+    this.blockPools.length));\r\n        let Pos = this._lastBlock.transform.GetChild(0).transform.position;\r\n       
+    let block = this.blockPools[n].GetComponent($typeof(BlockPool_1.default)).getBlock(Pos);\r\n       
+    this._lastBlock = block;\r\n        // Each generated block is added to an array
+    for later reset and set in motion\r\n        this._currentBlocksShowed.push(block);\r\n       
+    this._lastBlock.GetComponent($typeof(MoveBlock_1.default)).SetMoving(GameManagerRunner_1.default.Instance.isGameRunning);\r\n   
+    }\r\n    // This method enables the movement of the blocks and additionally defines
+    when the game is running\r\n    SetBlocksMovement(value) {\r\n        GameManagerRunner_1.default.Instance.isGameRunning
+    = value;\r\n        this._currentBlocksShowed.forEach(blockElement => {\r\n           
+    blockElement.GetComponent($typeof(MoveBlock_1.default)).SetMoving(value);\r\n       
+    });\r\n        if (__UnityEngine__.Object.op_Inequality(this._blockToDelete,
+    null)) {\r\n            this._blockToDelete.GetComponent($typeof(MoveBlock_1.default)).SetMoving(value);\r\n       
+    }\r\n    }\r\n    RemoveLastBlock() {\r\n        this._blockToDelete = this._currentBlocksShowed.shift();\r\n       
+    this.RemoveFirstOrReturnToPool(this._blockToDelete);\r\n    }\r\n    ResetLevel()
+    {\r\n        this._currentBlocksShowed.forEach(blockElement => {\r\n           
+    this.RemoveFirstOrReturnToPool(blockElement);\r\n        });\r\n        this._currentBlocksShowed
+    = [];\r\n    }\r\n    // If it is the StartBlock, the GameObject is deactivated,
+    if not it is returned to its respective pool\r\n    RemoveFirstOrReturnToPool(element)
+    {\r\n        if (__UnityEngine__.Object.op_Equality(element, this.startBlockPrefab))
+    {\r\n            // In case of being the initial block, the movement is deactivated\r\n           
+    element.GetComponent($typeof(MoveBlock_1.default)).SetMoving(false);\r\n           
+    element.SetActive(false);\r\n        }\r\n        else {\r\n            element.GetComponent($typeof(MoveBlock_1.default)).ReturnToPool();\r\n       
+    }\r\n    }\r\n}\r\nexports.default = LevelGenerator;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxHZW5lcmF0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMZXZlbEdlbmVyYXRvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSw2Q0FBZ0U7QUFDaEUsMkRBQW9EO0FBQ3BELDJDQUFvQztBQUNwQywyQ0FBb0M7QUFFcEMsTUFBcUIsY0FBZSxTQUFRLDJCQUFhO0lBZ0I5QyxLQUFLO1FBRVIsSUFBSSxjQUFjLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxjQUFjLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQzs7WUFDL0Qsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVELGdHQUFnRztJQUN6RixlQUFlO1FBRWxCLElBQUksQ0FBQyxvQkFBb0IsR0FBRyxFQUFFLENBQUM7UUFDL0IsSUFBSSx1QkFBdUIsR0FBRyxJQUFJLENBQUMsb0JBQW9CLENBQUMsU0FBUyxDQUFDO1FBRWxFLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDdEMsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsdUJBQXVCLENBQUMsUUFBUSxDQUFDO1FBQzVFLElBQUksQ0FBQyxXQUFXLEdBQUcsSUFBSSxDQUFDLGdCQUFnQixDQUFDO1FBRXpDLElBQUksQ0FBQyxvQkFBb0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO1FBQ2pELElBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDLFdBQVcsQ0FBQztRQUNuQyxJQUFJLENBQUMsYUFBYSxFQUFFLENBQUM7SUFDekIsQ0FBQztJQUVELHFGQUFxRjtJQUM5RSxhQUFhO1FBRWhCLElBQUksQ0FBQyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsb0JBQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQyxFQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsTUFBTSxDQUFDLENBQVcsQ0FBQztRQUNyRSxJQUFJLEdBQUcsR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUNuRSxJQUFJLEtBQUssR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUMsQ0FBQyxDQUFDLFlBQVksU0FBQyxtQkFBUyxHQUFJLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUV2RSxJQUFJLENBQUMsVUFBVSxHQUFHLEtBQW1CLENBQUM7UUFFdEMsOEVBQThFO1FBQzlFLElBQUksQ0FBQyxvQkFBb0IsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDdEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsbUJBQVMsR0FBSSxTQUFTLENBQUMsMkJBQWlCLENBQUMsUUFBUSxDQUFDLGFBQWEsQ0FBQyxDQUFDO0lBQ2xHLENBQUM7SUFFRCxtR0FBbUc7SUFDNUYsaUJBQWlCLENBQUMsS0FBVTtRQUUvQiwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsYUFBYSxHQUFHLEtBQUssQ0FBQztRQUNqRCxJQUFJLENBQUMsb0JBQW9CLENBQUMsT0FBTyxDQUFDLFlBQVksQ0FBQyxFQUFFO1lBQzdDLFlBQVksQ0FBQyxZQUFZLFNBQUMsbUJBQVMsR0FBSSxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDNUQsQ0FBQyxDQUFDLENBQUM7UUFFSCwyQkFtQzJxUCxhQUFjLENBbkN0clAsSUFBSSxDQUFDLGNBQWMsRUFBSSxJQUFJLEdBQzlCO1lBQ0ksSUFBSSxDQUFDLGNBQWMsQ0FBQyxZQUFZLFNBQUMsbUJBQVMsR0FBSSxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDbEU7SUFDTCxDQUFDO0lBRU0sZUFBZTtRQUVsQixJQUFJLENBQUMsY0FBYyxHQUFHLElBQUksQ0FBQyxvQkFBb0IsQ0FBQyxLQUFLLEVBQUUsQ0FBQztRQUN4RCxJQUFJLENBQUMseUJBQXlCLENBQUMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxDQUFDO0lBQ3hELENBQUM7SUFFTSxVQUFVO1FBRWIsSUFBSSxDQUFDLG9CQUFvQixDQUFDLE9BQU8sQ0FBQyxZQUFZLENBQUMsRUFBRTtZQUM3QyxJQUFJLENBQUMseUJBQXlCLENBQUMsWUFBWSxDQUFDLENBQUM7UUFDakQsQ0FBQyxDQUFDLENBQUM7UUFDSCxJQUFJLENBQUMsb0JBQW9CLEdBQUcsRUFBRSxDQUFDO0lBQ25DLENBQUM7SUFFRCx1R0FBdUc7SUFDL0YseUJBQXlCLENBQUMsT0FBbUI7UUFFakQsMkJBWStsUCxXQUFZLENBWnhtUCxPQUFPLEVBQUksSUFBSSxDQUFDLGdCQUFnQixHQUNuQztZQUNJLGtFQUFrRTtZQUNsRSxPQUFPLENBQUMsWUFBWSxTQUFDLG1CQUFTLEdBQUksU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1lBQ25ELE9BQU8sQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDNUI7YUFFRDtZQUNJLE9BQU8sQ0FBQyxZQUFZLFNBQUMsbUJBQVMsR0FBSSxZQUFZLEVBQUUsQ0FBQztTQUNwRDtJQUNMLENBQUM7Q0FFSjtBQTlGRCxpQ0E4RkMifQ==","assetPath":"Assets/Runner/Script/LevelGenerator.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"blockPools","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"startBlockPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"startBlockSpawnPoint","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"LevelGenerator","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 958b0190b374bec5a7693b77c347d1a5
   onlyWriteTrigger: 0

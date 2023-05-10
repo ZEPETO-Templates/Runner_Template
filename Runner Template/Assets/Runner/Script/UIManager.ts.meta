@@ -1,0 +1,42 @@
+fileFormatVersion: 2
+guid: afae2ef3de81cfb47aed056190bec5b4
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GameOverPanel_1 = require(\"./GameOverPanel\");\r\nconst
+    GameManagerRunner_1 = require(\"./GameManagerRunner\");\r\nconst TimerManagerRunner_1
+    = require(\"./TimerManagerRunner\");\r\nconst ScoreManager_1 = require(\"./ScoreManager\");\r\nclass
+    UIManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(UIManager.Instance, null))\r\n           
+    UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n        UIManager.Instance
+    = this;\r\n    }\r\n    Update() {\r\n        // The timer will run once the
+    game starts\r\n        if (GameManagerRunner_1.default.Instance.isGameRunning)
+    {\r\n            this.PointTxt.text = \"Points: \" + ScoreManager_1.default.Instance.GetPoints().toString();\r\n           
+    this.timeTxt.text = \"Time: \" + TimerManagerRunner_1.default.Instance.GetTimeFormated();\r\n       
+    }\r\n    }\r\n    // When the game starts for the first time, the start panel
+    is shown for the one time\r\n    OnStart() {\r\n        this.gameStartPanel.SetActive(true);\r\n       
+    this.gameOverPanel.SetActive(false);\r\n    }\r\n    // Once the game starts
+    running, all panels are turned off.\r\n    OnStartGame() {\r\n        this.gameStartPanel.SetActive(false);\r\n       
+    this.gameOverPanel.SetActive(false);\r\n    }\r\n    // Once the game ends, the
+    game over panel is displayed and updated\r\n    OnGameOver() {\r\n        this.gameOverPanel.SetActive(true);\r\n       
+    this.gameOverPanel.GetComponent($typeof(GameOverPanel_1.default)).updateGameOverPanel();\r\n   
+    }\r\n}\r\nexports.default = UIManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVUlNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXlDO0FBQ3pDLGlEQUFxRDtBQUNyRCxtREFBNEM7QUFFNUMsMkRBQW9EO0FBQ3BELDZEQUFzRDtBQUN0RCxpREFBMEM7QUFFMUMsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQVd4RCxLQUFLO1FBQ0QsSUFuQkMscUNBQXFCLENBbUQreUssYUFBYyxDQWhDLzBLLFNBQVMsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUNwRSxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztJQUM5QixDQUFDO0lBRUQsTUFBTTtRQUVGLDBDQUEwQztRQUMxQyxJQUFHLDJCQUFpQixDQUFDLFFBQVEsQ0FBQyxhQUFhLEVBQzNDO1lBQ0ksSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUFJLEdBQUUsVUFBVSxHQUFFLHNCQUFZLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxDQUFDLFFBQVEsRUFBRSxDQUFDO1lBQzdFLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFFLFFBQVEsR0FBRyw0QkFBa0IsQ0FBQyxRQUFRLENBQUMsZUFBZSxFQUFFLENBQUM7U0FDL0U7SUFDTCxDQUFDO0lBRUQscUZBQXFGO0lBQ3JGLE9BQU87UUFDSCxJQUFJLENBQUMsY0FBYyxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNwQyxJQUFJLENBQUMsYUFBYSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUN4QyxDQUFDO0lBRUQsMkRBQTJEO0lBQzNELFdBQVc7UUFDUCxJQUFJLENBQUMsY0FBYyxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNyQyxJQUFJLENBQUMsYUFBYSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUN4QyxDQUFDO0lBRUQsbUVBQW1FO0lBQ25FLFVBQVU7UUFDTixJQUFJLENBQUMsYUFBYSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNuQyxJQUFJLENBQUMsYUFBYSxDQUFDLFlBQVksU0FBQyx1QkFBYSxHQUFJLG1CQUFtQixFQUFFLENBQUM7SUFDM0UsQ0FBQztDQUVKO0FBNUNELDRCQTRDQyJ9","assetPath":"Assets/Runner/Script/UIManager.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"PointTxt","type":"TMPro.TextMeshProUGUI","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"Unity.TextMeshPro","name":"timeTxt","type":"TMPro.TextMeshProUGUI","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"gameOverPanel","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"gameStartPanel","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"UIManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 234657fc04c1732579b898b6e73accbb
+  onlyWriteTrigger: 0

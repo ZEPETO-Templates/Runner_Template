@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: b168ef4e33d16884f8c29dad05d5e88d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass AudioManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(AudioManager.Instance,
+    null))\r\n            AudioManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Simple implementation
+    of triggering a sound\r\n    PlayCoinSound() {\r\n        this.generalAudioSource.PlayOneShot(this.coinFX);\r\n   
+    }\r\n}\r\nexports.default = AudioManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXVkaW9NYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQXVkaW9NYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWdFO0FBQ2hFLGlEQUFxRDtBQUVyRCxNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBUXBELEtBQUs7UUFFUixJQVpDLHFDQUFxQixDQXFCZ3ZNLFdBQVksQ0FUOXdNLFlBQVksQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLFlBQVksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUMzRCx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsOENBQThDO0lBQ3ZDLGFBQWE7UUFFaEIsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDckQsQ0FBQztDQUNKO0FBbkJELCtCQW1CQyJ9","assetPath":"Assets/Runner/Script/AudioManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AudioModule","name":"generalAudioSource","type":"UnityEngine.AudioSource","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AudioModule","name":"coinFX","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AudioManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 16202630cab156e2ad78d7eaac517d32
+  onlyWriteTrigger: 0

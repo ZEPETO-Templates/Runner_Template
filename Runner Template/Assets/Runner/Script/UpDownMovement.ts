@@ -1,49 +1,51 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Vector3, MonoBehaviour, Time, Random } from 'UnityEngine';
+import { Vector3, Time, Random } from 'UnityEngine';
 
-export default class UpDownMovement  extends ZepetoScriptBehaviour {
+export default class UpDownMovement  extends ZepetoScriptBehaviour 
+{
 
-   // Define the movement speed
-  public maxSpeed: number = 1;
-  public minSpeed: number = 4;
-   public height: number = 1;
+    public maxSpeed: number = 1;
+    public minSpeed: number = 4;
+    public height: number = 1;
 
-  // Define the maximum height and minimum height
-  private maxHeight: number;
-  private minHeight: number;
-  private speed: number;
-  // Define the direction of movement
-  private moveUp: boolean = true;
+    private _maxHeight: number;
+    private _minHeight: number;
+    private _speed: number;
 
-  // Define the initial position
-  private initialPosition: Vector3;
+    private _moveUp: boolean = true;
 
-  Start() {
-    // Get the initial position and calculate the maximum and minimum height
-    this.initialPosition = this.transform.localPosition;
-    this.maxHeight = this.initialPosition.y + this.height;
-    this.minHeight = this.initialPosition.y;
-    this.speed=Math.floor(Random.Range(this.minSpeed,this.maxSpeed)) as number;
-  }
+    private _initialPosition: Vector3;
 
-  Update() {
-    // Calculate the new position
-    let newPosition = this.transform.localPosition;
-    if (this.moveUp) {
-      newPosition.y += Time.deltaTime * this.speed;
-      if (newPosition.y >= this.maxHeight) {
-        newPosition.y = this.maxHeight;
-        this.moveUp = false;
-      }
-    } else {
-      newPosition.y -= Time.deltaTime * this.speed;
-      if (newPosition.y <= this.minHeight) {
-        newPosition.y = this.minHeight;
-        this.moveUp = true;
-      }
+    Start() 
+    {
+        this._initialPosition = this.transform.localPosition;
+        this._maxHeight = this._initialPosition.y + this.height;
+        this._minHeight = this._initialPosition.y;
+        this._speed=Math.floor(Random.Range(this.minSpeed,this.maxSpeed)) as number;
     }
-    this.transform.localPosition = newPosition;
-  }
+
+    Update() 
+    {
+        let newPosition = this.transform.localPosition;
+        if (this._moveUp) 
+        {
+            newPosition.y += Time.deltaTime * this._speed;
+            if (newPosition.y >= this._maxHeight) 
+            {
+                newPosition.y = this._maxHeight;
+                this._moveUp = false;
+            }
+        }
+        else 
+        {
+            newPosition.y -= Time.deltaTime * this._speed;
+            if (newPosition.y <= this._minHeight) 
+            {
+                newPosition.y = this._minHeight;
+                this._moveUp = true;
+            }
+        }
+        this.transform.localPosition = newPosition;
+    }
+  
 }
-
-

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 7ba6ad592c4c8b741bde81962440a9ae
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GameManagerRunner_1 = require(\"./GameManagerRunner\");\r\nclass GameOverCollision
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(collider)
+    {\r\n        if (collider.gameObject.tag == \"Player\") {\r\n            GameManagerRunner_1.default.Instance.OnGameOver();\r\n       
+    }\r\n    }\r\n}\r\nexports.default = GameOverCollision;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU92ZXJDb2xsaXNpb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lT3ZlckNvbGxpc2lvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUN0RCwyREFBb0Q7QUFFcEQsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBR2hFLGNBQWMsQ0FBQyxRQUFrQjtRQUU3QixJQUFJLFFBQVEsQ0FBQyxVQUFVLENBQUMsR0FBRyxJQUFJLFFBQVEsRUFDdkM7WUFDSSwyQkFBaUIsQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7U0FDM0M7SUFDTCxDQUFDO0NBRUo7QUFYRCxvQ0FXQyJ9","assetPath":"Assets/Runner/Script/GameOverCollision.ts","manifest":{"properties":[],"name":"GameOverCollision","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: ca79a0ecc4078410f6461f1904902d4e
+  onlyWriteTrigger: 0
