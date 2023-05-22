@@ -9,6 +9,8 @@ export default class BlockPool extends ZepetoScriptBehaviour
     
     // Reference of the prefab block to be used by the pool
     public blockPrefab: GameObject;
+    public difficultyLevel: number;
+
     private _reserve: number;
 
     private _activeList: GameObject[];
@@ -25,6 +27,8 @@ export default class BlockPool extends ZepetoScriptBehaviour
         this._reserve = 2;
 
         this._numberReserved = this._reserve;
+
+        this.difficultyLevel = this.blockPrefab.GetComponent<MoveBlock>().difficultyLevel;
 
         this.initializeReserve();
     }
@@ -96,4 +100,5 @@ export default class BlockPool extends ZepetoScriptBehaviour
             gameObject.SetActive(false);
         }
     }
+    
 }

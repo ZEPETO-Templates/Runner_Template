@@ -12,33 +12,48 @@ Now, are you ready to start?
 > 💡 Enjoy and start creating with Runner Template! :tada:
 
 ## 🔨 Tools
-- **GameManagerRunner**: This script is very important for the functioning of the Runner template.
-Check that it is in scene. This script instantiates all the singletons that Runner
-needs, it also loads the variables of the singleton instances, that's why we pass all
-the data here.
-<img width="700" alt="image" src="./docs/images/cap_1.png"></img>    
------------------------------
-| Name                  | Functionality                                                                              |
-| --------------------- | ------------------------------------------------------------------------------------------ |
-| `Blocks`              | Array of prefab blocks that will generate the level, these will be set randomly.           |
-| `First Block`         | The first block that starts the level is the only one active in the scene at the beginning |
-| `Last Block`          | Last Block which is updated to know where to instantiate the next one.                     |
-| `Game Over Prefab UI` | Prefab of the game over screen. it appears when we collide with an obstacle..              |
-| `Parent UI`           | The parent where the GameOverPrefabUI is to be instantiated, must have a canvas.           |
+- **Hiterachy**: General structure of the template. The following scripts must be included and active in the scene since they are singletons.
+
+<img width="700" alt="image" src="./docs/images/Managers.jpg"></img>   
+
+
+- **GameManagerRunner**: This script is the main control of the game.
+Contains the public spawn reference of the player and the state of the game.
+Internally it manages the Start, End and Reset states of the game.
+
+<img width="700" alt="image" src="./docs/images/GameMgr.jpg"></img>    
+
+- **LevelGenerator**: This script is responsible for generating the initial state of the level and controlling the generation of new blocks through the use of Block Pools. Contains the public references in an array of block pools, as well as the initial block reference and its spawn point.
+
+<img width="700" alt="image" src="./docs/images/LvlMgr.jpg"></img>    
+
+- **BlockPool**: Block pools are an implementation of a design pattern to achieve better performance. These contain the reference of the block type that they can use. To implement new blocks it is necessary to create these objects (Block Pools) with the reference to the new block and assign this pool to the LevelGenerator as can be seen in the template.
+
+<img width="700" alt="image" src="./docs/images/blockPool.jpg"></img>  
+
+- **PointManager**: Script in charge of managing the addition and reset of points in the game.
+
+<img width="700" alt="image" src="./docs/images/PointMgr.jpg"></img> 
+
+- **TimeManager**: Script in charge of managing the running and reset of the game time.
+
+<img width="700" alt="image" src="./docs/images/TimeMgr.jpg"></img> 
+
+- **UIManager**: This script is in charge of updating the information on the screen regarding both the elapsed time and the points achieved throughout the game. It is also responsible for displaying the start and end of game panels. Contains the respective references.
+
+<img width="700" alt="image" src="./docs/images/UIMgr.jpg"></img> 
+
+- **AudioManager**: This script is in charge of triggering the sounds and contains the references of the AudioSource (Included as a component of itself) and of a sound effect.
+
+<img width="700" alt="image" src="./docs/images/AudioMgr.jpg"></img> 
 
 ## 🚧 Builds
-- **Block:** Prefab that is instantiated to generate the runner level. contains 2 scripts: MoveBlock, BlockLevel.
-<img width="700" alt="image" src="./docs/images/cap_2.png"></img>
-<img width="700" alt="image" src="./docs/images/cap_3.png"></img>
+- **Block:** Main prefab block. Contains a script (MoveBlock) that defines its speed and whether or not it is moving.
 
------------------------------
-| Name                | Functionality                                              |
-| ------------------- | ---------------------------------------------------------- |
-| `Speed`             | Speed at which the block will move towards the player.     |
-| `Spawn Block Level` | Transform from where the next Block is to be instantiated. |
-                    
+<img width="700" alt="image" src="./docs/images/blockPrefab.jpg"></img>                 
 
-- **SpawnBlock:** It is an empty game object, which goes at the end of the block and its transform will be passed to BlockLevel, to know where to instantiate the next block. It also has a collider Trigger to know when the player has finished passing over it, and instantiate the next block. **It must also be the first child of block.**
+- **SpawnBlock:** It's an empty game object, which goes to the end of the block. It has a Collider Trigger to know when the player has finished passing over it and notify the LevelGenerator to add a new block as well as detect the collision with the end of the level to remove it.
+
 <img width="700" alt="image" src="./docs/images/cap_4.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_5.png"></img>
 <img width="700" alt="image" src="./docs/images/cap_6.png"></img>

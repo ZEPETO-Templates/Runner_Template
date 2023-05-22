@@ -67,6 +67,7 @@ export default class GameManagerRunner extends MonoBehaviour
     // At the end of the game, the blocks are stopped and the UI is updated
     public OnGameOver()
     {
+        this._zepetoCharacter.gameObject.SetActive(false);
         LevelGenerator.Instance.SetBlocksMovement(false);
         UIManager.Instance.OnGameOver();
     }

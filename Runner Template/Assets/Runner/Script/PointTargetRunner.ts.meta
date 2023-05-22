@@ -22,10 +22,13 @@ ScriptedImporter:
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ScoreManager_1 = require(\"./ScoreManager\");\r\nclass
     PointTargetRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
-    {\r\n        this._pointsValue = 10;\r\n    }\r\n    OnTriggerEnter(collider)
-    {\r\n        ScoreManager_1.default.Instance.ScorePoints(this._pointsValue);\r\n       
-    this.particleSystem.GetComponent($typeof(UnityEngine_1.ParticleSystem)).Emit(30);\r\n       
-    UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n    }\r\n}\r\nexports.default
-    = PointTargetRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRUYXJnZXRSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb2ludFRhcmdldFJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFtRTtBQUNuRSxpREFBc0Q7QUFDdEQsaURBQTBDO0FBRTFDLE1BQXFCLGlCQUFrQixTQUFRLHFDQUFxQjtJQU16RCxLQUFLO1FBRVIsSUFBSSxDQUFDLFlBQVksR0FBRyxFQUFFLENBQUM7SUFDM0IsQ0FBQztJQUVELGNBQWMsQ0FBQyxRQUFrQjtRQUU3QixzQkFBWSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBQ3JELElBQUksQ0FBQyxjQUFjLENBQUMsWUFBWSxTQUFDLDRCQUFjLEdBQUksSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBQzVELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN4QyxDQUFDO0NBRUo7QUFsQkQsb0NBa0JDIn0=","assetPath":"Assets/Runner/Script/PointTargetRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"particleSystem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PointTargetRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 018e8c0347ba29393c6546154aa872e7
+    {\r\n        this._pointsValue = 10;\r\n    }\r\n    ResetPoint() {\r\n       
+    this.particleSystem.transform.parent = this.transform;\r\n        //this.particleSystem.transform.position
+    = this.transform.position;\r\n        this.gameObject.SetActive(true);\r\n   
+    }\r\n    OnTriggerEnter(collider) {\r\n        ScoreManager_1.default.Instance.ScorePoints(this._pointsValue);\r\n       
+    this.particleSystem.transform.parent = this.transform.parent;\r\n        //this.particleSystem.transform.position
+    = this.transform.position;\r\n        this.particleSystem.GetComponent($typeof(UnityEngine_1.ParticleSystem)).Emit(30);\r\n       
+    this.gameObject.SetActive(false);\r\n    }\r\n}\r\nexports.default = PointTargetRunner;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRUYXJnZXRSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb2ludFRhcmdldFJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUEwRTtBQUMxRSxpREFBc0Q7QUFDdEQsaURBQTBDO0FBRTFDLE1BQXFCLGlCQUFrQixTQUFRLHFDQUFxQjtJQU16RCxLQUFLO1FBRVIsSUFBSSxDQUFDLFlBQVksR0FBRyxFQUFFLENBQUM7SUFDM0IsQ0FBQztJQUVNLFVBQVU7UUFFYixJQUFJLENBQUMsY0FBYyxDQUFDLFNBQVMsQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQztRQUN0RCxtRUFBbUU7UUFDbkUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDcEMsQ0FBQztJQUVELGNBQWMsQ0FBQyxRQUFrQjtRQUU3QixzQkFBWSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBRXJELElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQztRQUM3RCxtRUFBbUU7UUFFbkUsSUFBSSxDQUFDLGNBQWMsQ0FBQyxZQUFZLFNBQUMsNEJBQWMsR0FBSSxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7UUFFNUQsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDckMsQ0FBQztDQUVKO0FBOUJELG9DQThCQyJ9","assetPath":"Assets/Runner/Script/PointTargetRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"particleSystem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PointTargetRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 5776a53d8536db2472bc5bbe1c95b684
   onlyWriteTrigger: 0

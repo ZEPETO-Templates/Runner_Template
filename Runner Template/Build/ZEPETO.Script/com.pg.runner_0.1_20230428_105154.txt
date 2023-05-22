@@ -1,0 +1,119 @@
+[World Settings]
+world id             com.pg.runner       
+version              0.1                 
+max clients          8                   
+orientation          vertical            
+disable invite       false               
+disable room list    false               
+disable private room false               
+
+[Build Manifest]
+3 mb                 assets/runner/material/fantasy_landscape_zepeto-style_forest_for_parallax.jpg
+2 mb                 assets/textmesh pro/resources\fonts & materials\liberationsans sdf.asset
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/gesture/4_ok.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landing_deep.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/fall_end.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_idle.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/v2/move_walk.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_move.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/walk.anim
+1014 kb              packages/zepeto.character.controller/runtime/_resources/animations/base/v2/idle.anim
+940 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/run.anim
+828 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/move_turn.anim
+734 kb               assets/runner/texture/ap_texturemap_001.png
+618 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jump_idle.anim
+600 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landing_slight.anim
+574 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landing_roll.anim
+560 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/idle.anim
+489 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/move_walk_fast.anim
+464 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jump_double.anim
+451 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/stamp.anim
+451 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jump_dash.anim
+445 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/move_run.anim
+442 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jump_move.anim
+428 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/hand_idle_01.anim
+374 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/move_run_fast.anim
+341 kb               assets/textmesh pro/fonts/liberationsans.ttf
+330 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/falling.anim
+297 kb               packages/zepeto.character.controller/runtime/_resources/animatorcontroller/zepetoanimatorv2.controller
+117 kb               assets/runner/prefab/point target.prefab
+113 kb               assets/runner/prefab/boxparticle.prefab
+105 kb               assets/runner/texture/fx_glow03.png
+101 kb               packages/com.unity.textmeshpro/editor resources/gizmos/tmp - font asset icon.psd
+87 kb                packages/com.unity.textmeshpro/editor resources/gizmos/tmp - text component icon.psd
+84 kb                assets/runner/texture/ap_tile_002.png
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/gesture.anim
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/action1.anim
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/action2.anim
+53 kb                assets/runner/runner.unity
+42 kb                assets/runner/model/cr_soccerball.mesh
+42 kb                assets/runner/model/sa_fence_001.mesh
+40 kb                assets/runner/model/ap_box_001.mesh
+36 kb                assets/runner/model/sa_barrier_001.mesh
+35 kb                packages/zepeto.character.controller/runtime/_resources/inputactions/zepetoinputcontrol.inputactions
+31 kb                packages/com.unity.inputsystem/inputsystem/plugins/playerinput/defaultinputactions.inputactions
+29 kb                assets/runner/prefab/gameoverscreen.prefab
+29 kb                assets/runner/prefab/block 3.prefab
+28 kb                assets/runner/prefab/block 4.prefab
+27 kb                assets/runner/texture/colortexture_001.png
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_horizontal.prefab
+27 kb                assets/runner/prefab/uicontroller_touchpad_horizontal.prefab
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_vertical.prefab
+27 kb                assets/runner/prefab/uicontroller_touchpad_vertical.prefab
+24 kb                assets/runner/prefab/block 2.prefab
+24 kb                assets/runner/prefab/block 9.prefab
+20 kb                assets/runner/prefab/block 1.prefab
+20 kb                assets/runner/prefab/block 8.prefab
+20 kb                assets/runner/prefab/block 7.prefab
+20 kb                assets/runner/prefab/block 5.prefab
+18 kb                assets/runner/animator/zepetoanimatorrunner.controller
+18 kb                packages/zepeto.character.controller/runtime/_resources/animatorcontroller/zepetoanimator.controller
+13 kb                assets/runner/prefab/blocks/block_14.fbx
+13 kb                assets/runner/prefab/blocks/block_04.fbx
+13 kb                assets/runner/prefab/blocks/block_13.fbx
+13 kb                assets/textmesh pro/resources\sprite assets\emojione.asset
+13 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_base.png
+12 kb                assets/runner/prefab/blocks/block_12.fbx
+12 kb                assets/runner/prefab/blocks/block_02.fbx
+12 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_base.png
+12 kb                assets/runner/prefab/blocks/block_01.fbx
+11 kb                assets/runner/prefab/levelgeneratorrunner.prefab
+10 kb                assets/runner/prefab/block 0.prefab
+10 kb                assets/runner/texture/ap_distancone_001.png
+9 kb                 assets/textmesh pro/resources\fonts & materials\liberationsans sdf - fallback.asset
+7 kb                 assets/textmesh pro/shaders/tmp_sdf-mobile.shader
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandleorigin.controller
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandle.controller
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_icon.png
+5 kb                 assets/runner/prefab/obstacles updown.prefab
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_icon.png
+5 kb                 assets/runner/material/ap_water.mat
+4 kb                 assets/textmesh pro/resources\style sheets\default style sheet.asset
+4 kb                 assets/runner/prefab/zepetoplayersrunner.prefab
+4 kb                 assets/runner/prefab/obstacle 2.prefab
+4 kb                 assets/runner/prefab/obstacle 1.prefab
+3 kb                 assets/runner/prefab/muro.prefab
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_ziggle.anim
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_ziggle.anim
+3 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/charactershadow.prefab
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/eventsystem.prefab
+2 kb                 assets/textmesh pro/resources\fonts & materials\liberationsans sdf - drop shadow.mat
+2 kb                 assets/textmesh pro/resources\fonts & materials\liberationsans sdf - outline.mat
+2 kb                 assets/runner/material/ap_texturemap_001.mat
+2 kb                 assets/runner/material/colortexture_001.mat
+2 kb                 assets/runner/material/ap_tile_002.mat
+2 kb                 assets/runner/material/skybox zepeto.mat
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.mat
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_off.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_on.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_off.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_on.anim
+2 kb                 assets/runner/texture/sparks.mat
+2 kb                 assets/runner/material/ap_distantcone_001.mat
+2 kb                 assets/runner/prefab/spawnblock.prefab
+1 kb                 packages/zepeto.character.controller/runtime/_resources/camera/zepetocamera.prefab
+1 kb                 assets/textmesh pro/resources\tmp settings.asset
+1 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.png
+1 kb                 packages/com.unity.inputsystem/inputsystem/editor/icons/inputsystemuiinputmodule@64.png
+269 b                assets/textmesh pro/resources\linebreaking following characters.txt
+95 b                 assets/textmesh pro/resources\linebreaking leading characters.txt

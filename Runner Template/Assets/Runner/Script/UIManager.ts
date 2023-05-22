@@ -27,8 +27,8 @@ export default class UIManager extends ZepetoScriptBehaviour
         // The timer will run once the game starts
         if(GameManagerRunner.Instance.isGameRunning)
         {
-            this.PointTxt.text= "Points: "+ ScoreManager.Instance.GetPoints().toString();
-            this.timeTxt.text= "Time: " + TimerManagerRunner.Instance.GetTimeFormated();
+            this.PointTxt.text = ScoreManager.Instance.GetPoints().toString();
+            this.timeTxt.text = TimerManagerRunner.Instance.GetTimeFormated();
         }
     }
 

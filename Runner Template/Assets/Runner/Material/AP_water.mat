@@ -113,7 +113,7 @@ Material:
     - _FresPower: 1.7
     - _Gloss: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.732
     - _GlossyReflections: 1
     - _HQFoam: 0
     - _Height: 0.1

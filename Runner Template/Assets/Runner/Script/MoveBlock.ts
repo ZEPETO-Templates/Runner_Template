@@ -1,14 +1,18 @@
 import { Vector3, GameObject, Time } from "UnityEngine";
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import BlockPool from "./BlockPool";
+import PointTargetRunner from "./PointTargetRunner";
 
 export default class MoveBlock extends ZepetoScriptBehaviour 
 {
 
     public blockPool: BlockPool;
+    public difficultyLevel: number;
 
     public speed: number;
     public isMoving: bool;
+
+    public points: GameObject[];
 
     public Awake(): void 
     {
@@ -24,6 +28,11 @@ export default class MoveBlock extends ZepetoScriptBehaviour
         }
     }
 
+    public SetSpeed(value: number)
+    {
+        this.speed = value;
+    }
+
     public SetMoving(value:bool): void 
     {
         this.isMoving = value;
@@ -33,6 +42,12 @@ export default class MoveBlock extends ZepetoScriptBehaviour
     {
         if(this.blockPool != null)
         {
+            if(this.points != null && this.points.length > 0) {
+                this.points.forEach(element => {
+                    element.GetComponent<PointTargetRunner>().ResetPoint();
+                });
+            }
+            
             this.blockPool.returnBlock(this.gameObject);
         }
         else

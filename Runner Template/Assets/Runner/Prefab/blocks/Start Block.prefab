@@ -95,13 +95,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7299904526072197210}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 100, y: 200, z: 100}
   m_Children: []
   m_Father: {fileID: 6177601850653332421}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 90, z: 0}
 --- !u!33 &5998954307839109287
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -129,7 +129,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 220caebc238c544408b6712347c9b480, type: 2}
+  - {fileID: 2100000, guid: 2de19a639cdb3d540a42f2b92f6e4a05, type: 2}
+  - {fileID: 2100000, guid: 4b3f5c596c2e8024a8c6242b35c5ffdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -229,12 +230,22 @@ MonoBehaviour:
     keys:
     - speed
     - isMoving
+    - blockPool
+    - difficultyLevel
+    - points
     unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     values:
     - '{"type":"System.Single, mscorlib","value":"4"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":0,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 401e5af7423c96e429e61d311aa15313, type: 3}

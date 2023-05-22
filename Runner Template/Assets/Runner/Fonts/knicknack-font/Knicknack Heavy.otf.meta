@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 6f731397a7a14f3479d55ab8c1f71d34
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Knicknack
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 251b1625688fd444ab1cc0ced8175b03, type: 3}
+  - {fileID: 12800000, guid: a621d5f2e9cb3da43ab9f7efcf2d680e, type: 3}
+  - {fileID: 12800000, guid: ead0120b7453f2942a83ed74f836977e, type: 3}
+  - {fileID: 12800000, guid: aa2905b983ec3df4583366aa3f84f056, type: 3}
+  - {fileID: 12800000, guid: 60dd4e4a2d1cd9641b9372e5a81d2a29, type: 3}
+  - {fileID: 12800000, guid: aef981391ae235340a55f5c0d79e60b8, type: 3}
+  - {fileID: 12800000, guid: 927739424647e7e4eb69ede5974e258b, type: 3}
+  - {fileID: 12800000, guid: 072fea9984237b8489835987f04295e1, type: 3}
+  - {fileID: 12800000, guid: fc1933fdff26e5f45a578b1a4906ea5d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

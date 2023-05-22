@@ -32,7 +32,7 @@ export default class TimerManagerRunner extends ZepetoScriptBehaviour
         this.currentTime = 0;
     }
 
-    private GetTime(): number 
+    public GetTime(): number 
     {
         this.currentTime = Time.time - this.startTime;
         return this.currentTime;
@@ -45,6 +45,11 @@ export default class TimerManagerRunner extends ZepetoScriptBehaviour
         let seconds = ((time % 60000)).toFixed(0).padStart(2, '0') as string;
 
         return minutes + ':' + seconds;
+    }
+    
+    public GetSeconds() : number
+    {
+        return 
     }
     
 }
