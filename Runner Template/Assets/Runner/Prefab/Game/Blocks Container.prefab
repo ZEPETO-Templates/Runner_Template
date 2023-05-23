@@ -54,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347813667877737102}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -184,11 +184,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3871655423983723826, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: script.keys.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3871655423983723826, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: script.values.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3871655423983723826, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: script.keys.Array.data[2]
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3871655423983723826, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: script.unityValues.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6177601850653332421, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: m_RootOrder
@@ -248,6 +248,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7672554628174675254, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947608792559564895, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
+      propertyPath: script.keys.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947608792559564895, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
+      propertyPath: script.values.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947608792559564895, guid: 2146bdbb4c85bb140a0e618046fff978, type: 3}
+      propertyPath: script.unityValues.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

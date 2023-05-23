@@ -47,10 +47,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 7563773620372517630, guid: 8f9effdf958faa44c8f962d7ae586786, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -102,10 +105,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 5932916186610900903, guid: 1701d67b9781728448ea29136a93427c, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -168,7 +174,11 @@ MonoBehaviour:
     - startBlockPrefab
     - startBlockSpawnPoint
     - blockPools
+    - difficultyLevelsTimeLimits
+    - levelSpeedByDifficulty
     unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -177,6 +187,10 @@ MonoBehaviour:
     - 
     - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":9,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"System.Single,
+      mscorlib\",\"isUnity\":false}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":3,\"length\":3,\"type\":\"System.Single,
+      mscorlib\",\"isUnity\":false}"}'
     unityArrayValues:
     - {fileID: 3263107907823333498}
     - {fileID: 3263107906597110164}
@@ -187,7 +201,13 @@ MonoBehaviour:
     - {fileID: 3263107907363540218}
     - {fileID: 3263107907426095942}
     - {fileID: 3263107907238302149}
-    arrayValues: []
+    arrayValues:
+    - 10
+    - 20
+    - 30
+    - 4
+    - 4
+    - 4
     script: {fileID: 4458252877524076426, guid: 50770cb481467434a9a7d46e8856de97, type: 3}
     isExpaned: 0
 --- !u!1 &3263107907238302149
@@ -237,10 +257,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 42198008463064441, guid: f99860c3675bdd34eba621279c4923f2, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -292,10 +315,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 5084510850135897605, guid: 752e663486034ed4bb6e035890747e8d, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -347,10 +373,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 3553025702214079343, guid: 451c88d3083470b4a813134623a8e1e4, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -402,10 +431,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 6602956144979638156, guid: d8b5d841d17140d4c8358cce5146d568, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -457,10 +489,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 4379623899207204711, guid: e415d9fdf1085f64a8a0119a094e9f23, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
@@ -512,10 +547,13 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
+    - difficultyLevel
     unityValues:
     - {fileID: 3555623166268556018, guid: 1ccb875068575fb4da25320e901421e3, type: 3}
+    - {fileID: 0}
     values:
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}

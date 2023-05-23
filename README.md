@@ -23,7 +23,9 @@ Internally it manages the Start, End and Reset states of the game.
 
 <img width="700" alt="image" src="./docs/images/GameMgr.jpg"></img>    
 
-- **LevelGenerator**: This script is responsible for generating the initial state of the level and controlling the generation of new blocks through the use of Block Pools. Contains the public references in an array of block pools, as well as the initial block reference and its spawn point.
+- **LevelGenerator**: This script is responsible for generating the initial state of the level and controlling the generation of new blocks through the use of Block Pools. Contains the public references in a list of block pools, as well as the initial block reference and its generation point.
+
+Additionally, you can adjust how often (in seconds) the level of difficulty of the game and its speed are raised respectively.
 
 <img width="700" alt="image" src="./docs/images/LvlMgr.jpg"></img>    
 
@@ -48,7 +50,9 @@ Internally it manages the Start, End and Reset states of the game.
 <img width="700" alt="image" src="./docs/images/AudioMgr.jpg"></img> 
 
 ## 🚧 Builds
-- **Block:** Main prefab block. Contains a script (MoveBlock) that defines its speed and whether or not it is moving.
+- **Block:** Main prefab block. It contains a script (MoveBlock) that defines its speed and whether it moves or not.
+
+It is also possible to modify their level of difficulty so that the level generator decides to add them according to their configuration.
 
 <img width="700" alt="image" src="./docs/images/blockPrefab.jpg"></img>                 
 

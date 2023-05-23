@@ -65,7 +65,7 @@ export default class LevelGenerator extends MonoBehaviour
         
         while(!isValidPool){
             n = Math.floor(Random.Range(0,this.blockPools.length)) as number;
-            if(this.blockPools[n].GetComponent<BlockPool>().difficultyLevel <= this._currentDifficultyLevel)
+            if(this.blockPools[n].GetComponent<BlockPool>().GetDifficultyLevel() <= this._currentDifficultyLevel)
             {
                 isValidPool = true;
             }

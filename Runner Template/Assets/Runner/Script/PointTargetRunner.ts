@@ -22,14 +22,17 @@ export default class PointTargetRunner extends ZepetoScriptBehaviour
 
     OnTriggerEnter(collider: Collider) 
     {
-        ScoreManager.Instance.ScorePoints(this._pointsValue);
+        if(collider.CompareTag("Player"))
+        {
+            ScoreManager.Instance.ScorePoints(this._pointsValue);
 
-        this.particleSystem.transform.parent = this.transform.parent;
-        //this.particleSystem.transform.position = this.transform.position;
+            this.particleSystem.transform.parent = this.transform.parent;
+            //this.particleSystem.transform.position = this.transform.position;
 
-        this.particleSystem.GetComponent<ParticleSystem>().Emit(30);
+            this.particleSystem.GetComponent<ParticleSystem>().Emit(30);
 
-        this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+        }
     }
   
 }

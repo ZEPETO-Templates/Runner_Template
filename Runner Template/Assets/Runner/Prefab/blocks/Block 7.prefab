@@ -181,8 +181,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.8653288, z: 1}
-  m_Center: {x: 0, y: 0.9326644, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3492551119496204773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +300,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1102894538267055574, guid: 49375b0f21095d141bbfa6e628fe33cb, type: 3}
+  m_Mesh: {fileID: 5800583409712949519, guid: 49375b0f21095d141bbfa6e628fe33cb, type: 3}
 --- !u!1001 &1265493089318383117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5770525685570924668, guid: f7943ef791c7de541b7421d6be2e7df8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.51
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5770525685570924668, guid: f7943ef791c7de541b7421d6be2e7df8, type: 3}
       propertyPath: m_LocalPosition.y
