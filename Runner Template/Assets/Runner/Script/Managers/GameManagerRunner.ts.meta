@@ -1,0 +1,70 @@
+fileFormatVersion: 2
+guid: 5c4ffbe5e0e29914fbaaf9589195c5d5
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst TimerManagerRunner_1 = require(\"./TimerManagerRunner\");\r\nconst
+    LevelGenerator_1 = require(\"./LevelGenerator\");\r\nconst ScoreManager_1 = require(\"./ScoreManager\");\r\nconst
+    UIManager_1 = require(\"./UIManager\");\r\n//This class is the main manager that
+    controls the general state of the game\r\nclass GameManagerRunner extends UnityEngine_1.MonoBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // This is how the instance of this class is allocated. Which makes
+    it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
+    if (GameManagerRunner.Instance == null)\r\n            GameManagerRunner.Instance
+    = this;\r\n        else\r\n            UnityEngine_1.GameObject.Destroy(this);\r\n   
+    }\r\n    // Start is called on the frame when a script is enabled just before
+    any of the Update methods is called the first time\r\n    Start() {\r\n       
+    // Initial state of the game\r\n        this.isGameRunning = false;\r\n       
+    // Instance of the player zepeto\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
+    ZEPETO_World_1.WorldService.userId, new ZEPETO_Character_Controller_1.SpawnInfo(),
+    true);\r\n        // The instantiation can take a few seconds, the following
+    lines are executed once this happens\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            // The reference of the instance of the ZepetoCharacter is
+    taken\r\n            this._zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
+    // The \"player\" tag is assigned and the ZepetoCharacter gameobject is disabled\r\n           
+    // This tag is necessary to check the collision of the player\r\n           
+    this._zepetoCharacter.gameObject.tag = \"Player\";\r\n            this._zepetoCharacter.gameObject.SetActive(false);\r\n           
+    // The UIManager is told to display the initial UI\r\n            UIManager_1.default.Instance.OnStart();\r\n       
+    });\r\n    }\r\n    // This method initializes the game\r\n    // The parameters
+    are restored and the blocks start moving\r\n    OnGameStart() {\r\n        //
+    Timer and level initialization\r\n        TimerManagerRunner_1.default.Instance.StartTimer();\r\n       
+    LevelGenerator_1.default.Instance.InitializeLevel();\r\n        // ZepetoCharacter
+    gameobject reactivated and positioned\r\n        // The location of the ZepetoCharacter
+    can be assigned using a method of its own class\r\n        // \"Teleport\" that
+    receives as parameters a position and a rotation which in this case are taken
+    from the spawnPoint\r\n        this._zepetoCharacter.gameObject.SetActive(true);\r\n       
+    this._zepetoCharacter.Teleport(this.playerSpawnPoint.transform.position, this.playerSpawnPoint.transform.rotation);\r\n       
+    // \"setTimeout\" allows us to call a method after a given time in milliseconds\r\n       
+    // In this case, we delay the start of movement of the blocks to coincide with
+    the start of the running animation of ZepetoCharacter\r\n        setTimeout(()
+    => LevelGenerator_1.default.Instance.SetBlocksMovement(true), 1500);\r\n       
+    // The UIManager is told to display the game interface\r\n        UIManager_1.default.Instance.OnStartGame();\r\n   
+    }\r\n    // This method resets the entire game state and will start the level
+    again\r\n    OnGameReset() {\r\n        LevelGenerator_1.default.Instance.ResetLevel();\r\n       
+    ScoreManager_1.default.Instance.ResetPoints();\r\n        TimerManagerRunner_1.default.Instance.ResetTimer();\r\n       
+    this.OnGameStart();\r\n    }\r\n    // This method defines the state of the end
+    of the game\r\n    OnGameOver() {\r\n        // ZepetoCharacter is disabled\r\n       
+    this._zepetoCharacter.gameObject.SetActive(false);\r\n        // The movement
+    of the blocks is stopped\r\n        LevelGenerator_1.default.Instance.SetBlocksMovement(false);\r\n       
+    // The UIManager is told to display the game over interface\r\n        UIManager_1.default.Instance.OnGameOver();\r\n   
+    }\r\n}\r\nexports.default = GameManagerRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU1hbmFnZXJSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lTWFuYWdlclJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFpRTtBQUNqRSw2RUFBd0Y7QUFDeEYsK0NBQTRDO0FBQzVDLDZEQUFzRDtBQUN0RCxxREFBOEM7QUFDOUMsaURBQTBDO0FBQzFDLDJDQUFvQztBQUVwQyw0RUFBNEU7QUFDNUUsTUFBcUIsaUJBQWtCLFNBQVEsMkJBQWE7SUFTeEQsMkRBQTJEO0lBQ3BELEtBQUs7UUFFUixvRkFBb0Y7UUFDcEYsa0RBQWtEO1FBQ2xELElBQUksaUJBQWlCLENBQUMsUUFBUSxJQUFJLElBQUk7WUFBRSxpQkFBaUIsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUNyRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsdUhBQXVIO0lBQ3ZILEtBQUs7UUFFRCw0QkFBNEI7UUFDNUIsSUFBSSxDQUFDLGFBQWEsR0FBRyxLQUFLLENBQUM7UUFFM0IsZ0NBQWdDO1FBQ2hDLGlFQUF1QixzQkFBc0IsQ0FBN0MsMkNBQWEsQ0FBQyxRQUFRLEVBQXdCLDJCQUFZLENBQUMsTUFBTSxFQUFFLElBQUksdUNBQVMsRUFBRSxFQUFFLElBQUksRUFBRTtRQUUxRiwrRkFBK0Y7UUFDL0YsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUV2RCxnRUFBZ0U7WUFDaEUsSUFBSSxDQUFDLGdCQUFnQixHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1lBRWxGLDhFQUE4RTtZQUM5RSw2REFBNkQ7WUFDN0QsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxHQUFHLEdBQUcsUUFBUSxDQUFDO1lBQ2hELElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1lBRWxELGtEQUFrRDtZQUNsRCxtQkFBUyxDQUFDLFFBQVEsQ0FBQyxPQUFPLEVBQUUsQ0FBQztRQUNqQyxDQUFDLENBQUMsQ0FBQztJQUVQLENBQUM7SUFFRCxtQ0FBbUM7SUFDbkMsMERBQTBEO0lBQ25ELFdBQVc7UUFFZCxpQ0FBaUM7UUFDakMsNEJBQWtCLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBQ3pDLHdCQUFjLENBQUMsUUFBUSxDQUFDLGVBQWUsRUFBRSxDQUFDO1FBRTFDLHdEQUF3RDtRQUN4RCxzRkFBc0Y7UUFDdEYsb0hBQW9IO1FBQ3BILElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ2pELElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQztRQUVuSCw2RUFBNkU7UUFDN0Usb0lBQW9JO1FBQ3BJLFVBQVUsQ0FBQyxHQUFHLEVBQUUsQ0FBQyx3QkFBYyxDQUFDLFFBQVEsQ0FBQyxpQkFBaUIsQ0FBQyxJQUFJLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQztRQUV4RSxzREFBc0Q7UUFDdEQsbUJBQVMsQ0FBQyxRQUFRLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDckMsQ0FBQztJQUVELDBFQUEwRTtJQUNuRSxXQUFXO1FBRWQsd0JBQWMsQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDckMsc0JBQVksQ0FBQyxRQUFRLENBQUMsV0FBVyxFQUFFLENBQUM7UUFDcEMsNEJBQWtCLENBQUMsUUFBUSxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBRXpDLElBQUksQ0FBQyxXQUFXLEVBQUUsQ0FBQztJQUN2QixDQUFDO0lBRUQsdURBQXVEO0lBQ2hELFVBQVU7UUFFYiw4QkFBOEI7UUFDOUIsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFFbEQsd0NBQXdDO1FBQ3hDLHdCQUFjLENBQUMsUUFBUSxDQUFDLGlCQUFpQixDQUFDLEtBQUssQ0FBQyxDQUFDO1FBRWpELDJEQUEyRDtRQUMzRCxtQkFBUyxDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztJQUNwQyxDQUFDO0NBRUo7QUF6RkQsb0NBeUZDIn0=","assetPath":"Assets/Runner/Script/Managers/GameManagerRunner.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"isGameRunning","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"playerSpawnPoint","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameManagerRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: f62650ea935fd3032f4962b4ba803d5d
+  onlyWriteTrigger: 0

@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: e2efba5b8162b124ba60fdfc732f5bd9
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    GameManagerRunner_1 = require(\\\"../Managers/GameManagerRunner\\\");\\r\\nconst
+    UIManager_1 = require(\\\"../Managers/UIManager\\\");\\r\\n// This class controls
+    the view of the endgame panel\\r\\nclass GameOverPanel extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    // Start is called on the frame when a script is enabled just before
+    any of the Update methods is called the first time\\r\\n    Start() {\\r\\n       
+    // The call to the method to reset the game is assigned to the button event\\r\\n       
+    this.retryButton.onClick.AddListener(this.OnGameReset);\\r\\n    }\\r\\n    //
+    This method is called when the retry button is pressed\\r\\n    OnGameReset()
+    {\\r\\n        // Called the game manager to reset the game\\r\\n        // The
+    call is made via the static instance of the singleton\\r\\n        GameManagerRunner_1.default.Instance.OnGameReset();\\r\\n   
+    }\\r\\n    // The values \u200B\u200Bdisplayed in the game over panel are updated
+    \\r\\n    // with the data currently displayed in the UI by the GameManager\\r\\n   
+    updateGameOverPanel() {\\r\\n        this.tittlePointsTxt.text = \\\"Points:
+    \\\" + UIManager_1.default.Instance.PointTxt.text;\\r\\n        this.tittleTimerTxt.text
+    = \\\"Time: \\\" + UIManager_1.default.Instance.timeTxt.text;\\r\\n    }\\r\\n}\\r\\nexports.default
+    = GameOverPanel;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU92ZXJQYW5lbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWVPdmVyUGFuZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQSxpREFBcUQ7QUFDckQscUVBQThEO0FBQzlELHFEQUE4QztBQUU5QyxvREFBb0Q7QUFDcEQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQU81RCx1SEFBdUg7SUFDdkgsS0FBSztRQUVELDJFQUEyRTtRQUMzRSxJQUFJLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO0lBQzNELENBQUM7SUFFRCx5REFBeUQ7SUFDekQsV0FBVztRQUVQLDRDQUE0QztRQUM1Qyw0REFBNEQ7UUFDNUQsMkJBQWlCLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBQzdDLENBQUM7SUFFRCw2REFBNkQ7SUFDN0QsaUVBQWlFO0lBQzFELG1CQUFtQjtRQUV0QixJQUFJLENBQUMsZUFBZSxDQUFDLElBQUksR0FBRyxVQUFVLEdBQUcsbUJBQVMsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQztRQUMxRSxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksR0FBRyxRQUFRLEdBQUcsbUJBQVMsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQztJQUMxRSxDQUFDO0NBRUo7QUE5QkQsZ0NBOEJDIn0=\",\"assetPath\":\"Assets/Runner/Script/UI/GameOverPanel.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.UI\",\"name\":\"retryButton\",\"type\":\"UnityEngine.UI.Button\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"Unity.TextMeshPro\",\"name\":\"tittlePointsTxt\",\"type\":\"TMPro.TextMeshProUGUI\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"Unity.TextMeshPro\",\"name\":\"tittleTimerTxt\",\"type\":\"TMPro.TextMeshProUGUI\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"GameOverPanel\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
+  typescriptHash: 7dc192aebba013c8fdcd6679059f4b47
+  onlyWriteTrigger: 0

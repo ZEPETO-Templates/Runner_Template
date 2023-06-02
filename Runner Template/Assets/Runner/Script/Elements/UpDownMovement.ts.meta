@@ -1,0 +1,59 @@
+fileFormatVersion: 2
+guid: 21b3818b001c4d143bf0d20a46001384
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\n// This class adjusts the
+    movement of an element\\r\\nclass UpDownMovement extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    constructor() {\\r\\n        super(...arguments);\\r\\n        this.maxSpeed
+    = 1; // Maximum speed limit\\r\\n        this.minSpeed = 4; // Minimum Speed
+    \u200B\u200BLimit\\r\\n        this.height = 1; // Height to go\\r\\n       
+    this._moveUp = true; // Flag that indicates if the element is moving up\\r\\n   
+    }\\r\\n    // Start is called on the frame when a script is enabled just before
+    any of the Update methods is called the first time\\r\\n    Start() {\\r\\n       
+    // The initial position reference is saved\\r\\n        this._initialPosition
+    = this.transform.localPosition;\\r\\n        //The maximum height limit is defined
+    as the current position plus the height to go\\r\\n        this._maxHeight =
+    this._initialPosition.y + this.height;\\r\\n        // The minimum is the same
+    initial position in Y\\r\\n        this._minHeight = this._initialPosition.y;\\r\\n       
+    // Finally, the speed is defined as a random value between the maximum and the
+    minimum previously defined\\r\\n        this._speed = Math.floor(UnityEngine_1.Random.Range(this.minSpeed,
+    this.maxSpeed));\\r\\n    }\\r\\n    // Update is called every frame, if the
+    MonoBehaviour is enabled\\r\\n    Update() {\\r\\n        // We create a temporary
+    vector3 that we are going to manipulate\\r\\n        let newPosition = this.transform.localPosition;\\r\\n       
+    // Depending on the flag that indicates the direction, \\r\\n        // we increase
+    or decrease the Y component of the vector\\r\\n        if (this._moveUp) {\\r\\n           
+    // The increment is made by multiplying the time by the defined speed\\r\\n           
+    newPosition.y += UnityEngine_1.Time.deltaTime * this._speed;\\r\\n           
+    // If the new position in Y exceeds the maximum limit, we invert the movement
+    flag\\r\\n            if (newPosition.y >= this._maxHeight) {\\r\\n               
+    newPosition.y = this._maxHeight;\\r\\n                this._moveUp = false;\\r\\n           
+    }\\r\\n        }\\r\\n        else {\\r\\n            // The decrease is made
+    by multiplying the time by the defined speed\\r\\n            newPosition.y -=
+    UnityEngine_1.Time.deltaTime * this._speed;\\r\\n            // If the new position
+    in Y is less than the minimum limit, we invert the movement flag\\r\\n           
+    if (newPosition.y <= this._minHeight) {\\r\\n                newPosition.y =
+    this._minHeight;\\r\\n                this._moveUp = true;\\r\\n            }\\r\\n       
+    }\\r\\n        // Finally we assign the time vector as the value of the position
+    of the element that has this component\\r\\n        this.transform.localPosition
+    = newPosition;\\r\\n    }\\r\\n}\\r\\nexports.default = UpDownMovement;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVXBEb3duTW92ZW1lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVcERvd25Nb3ZlbWVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBb0Q7QUFFcEQsZ0RBQWdEO0FBQ2hELE1BQXFCLGNBQWdCLFNBQVEscUNBQXFCO0lBQWxFOztRQUdXLGFBQVEsR0FBVyxDQUFDLENBQUMsQ0FBQyxzQkFBc0I7UUFDNUMsYUFBUSxHQUFXLENBQUMsQ0FBQyxDQUFDLHdCQUF3QjtRQUM5QyxXQUFNLEdBQVcsQ0FBQyxDQUFDLENBQUMsZUFBZTtRQU1sQyxZQUFPLEdBQVksSUFBSSxDQUFDLENBQUMsa0RBQWtEO0lBeUR2RixDQUFDO0lBckRHLHVIQUF1SDtJQUN2SCxLQUFLO1FBRUQsMENBQTBDO1FBQzFDLElBQUksQ0FBQyxnQkFBZ0IsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLGFBQWEsQ0FBQztRQUVyRCxtRkFBbUY7UUFDbkYsSUFBSSxDQUFDLFVBQVUsR0FBRyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7UUFFeEQsZ0RBQWdEO1FBQ2hELElBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDLGdCQUFnQixDQUFDLENBQUMsQ0FBQztRQUUxQyx5R0FBeUc7UUFDekcsSUFBSSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLG9CQUFNLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxRQUFRLEVBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFXLENBQUM7SUFDbEYsQ0FBQztJQUVELGdFQUFnRTtJQUNoRSxNQUFNO1FBRUYsZ0VBQWdFO1FBQ2hFLElBQUksV0FBVyxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsYUFBYSxDQUFDO1FBRS9DLHVEQUF1RDtRQUN2RCx3REFBd0Q7UUFDeEQsSUFBSSxJQUFJLENBQUMsT0FBTyxFQUNoQjtZQUNJLHFFQUFxRTtZQUNyRSxXQUFXLENBQUMsQ0FBQyxJQUFJLGtCQUFJLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7WUFFOUMsa0ZBQWtGO1lBQ2xGLElBQUksV0FBVyxDQUFDLENBQUMsSUFBSSxJQUFJLENBQUMsVUFBVSxFQUNwQztnQkFDSSxXQUFXLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUM7Z0JBQ2hDLElBQUksQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO2FBQ3hCO1NBQ0o7YUFFRDtZQUNJLG9FQUFvRTtZQUNwRSxXQUFXLENBQUMsQ0FBQyxJQUFJLGtCQUFJLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7WUFFOUMsdUZBQXVGO1lBQ3ZGLElBQUksV0FBVyxDQUFDLENBQUMsSUFBSSxJQUFJLENBQUMsVUFBVSxFQUNwQztnQkFDSSxXQUFXLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUM7Z0JBQ2hDLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDO2FBQ3ZCO1NBQ0o7UUFFRCx3R0FBd0c7UUFDeEcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxhQUFhLEdBQUcsV0FBVyxDQUFDO0lBQy9DLENBQUM7Q0FFSjtBQXBFRCxpQ0FvRUMifQ==\",\"assetPath\":\"Assets/Runner/Script/UpDownMovement.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"maxSpeed\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[\"1\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"minSpeed\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[\"4\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"height\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[\"1\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"UpDownMovement\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
+  typescriptHash: f41857bb90d060724d535deca9c86389
+  onlyWriteTrigger: 0

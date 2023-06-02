@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: b168ef4e33d16884f8c29dad05d5e88d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\n// This class is responsible
+    for managing the use of audio resources\r\nclass AudioManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // This is how the instance of this class is allocated. Which makes
+    it a \"singleton\"\r\n        // https://en.wikipedia.org/wiki/Singleton_pattern\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(AudioManager.Instance,
+    null))\r\n            AudioManager.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Simple implementation
+    of triggering a sound\r\n    PlayCoinSound() {\r\n        // The triggering of
+    the sound is done by passing the AudioClip to the AudioSource as a parameter
+    through the \"PlayOneShot\" method.\r\n        this.generalAudioSource.PlayOneShot(this.coinFX);\r\n   
+    }\r\n}\r\nexports.default = AudioManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXVkaW9NYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQXVkaW9NYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWdFO0FBQ2hFLGlEQUFxRDtBQUVyRCxvRUFBb0U7QUFDcEUsTUFBcUIsWUFBYSxTQUFRLHFDQUFxQjtJQVEzRCwyREFBMkQ7SUFDcEQsS0FBSztRQUVSLG9GQUFvRjtRQUNwRixrREFBa0Q7UUFDbEQsSUFoQkMscUNBQXFCLENBMEIrdUwsV0FBWSxDQVY3d0wsWUFBWSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7O1lBQzNELHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFRCw4Q0FBOEM7SUFDdkMsYUFBYTtRQUVoQixtSUFBbUk7UUFDbkksSUFBSSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDckQsQ0FBQztDQUNKO0FBdkJELCtCQXVCQyJ9","assetPath":"Assets/Runner/Script/Managers/AudioManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AudioModule","name":"generalAudioSource","type":"UnityEngine.AudioSource","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AudioModule","name":"coinFX","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AudioManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: de170ff3745187a779a2a96811de1bda
+  onlyWriteTrigger: 0

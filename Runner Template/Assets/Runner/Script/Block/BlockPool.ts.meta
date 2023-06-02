@@ -1,0 +1,79 @@
+fileFormatVersion: 2
+guid: 7e368ca5c0f375f4090430add783184f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst MoveBlock_1 = require(\"./MoveBlock\");\r\n//
+    This class is an implementation of the Object Pool pattern for better performance.\r\n//
+    https://en.wikipedia.org/wiki/Object_pool_pattern\r\n// This pool can only use
+    one type of block at a time\r\nclass BlockPool extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    // Awake is called when the script instance is being loaded\r\n    Awake()
+    {\r\n        // Initialized from empty arrays\r\n        this._activeList = [];\r\n       
+    this._reserveList = [];\r\n        // Default value of the reservation amount\r\n       
+    this._reserve = 2;\r\n        // Allocation of the current number of items in
+    reserve\r\n        this._numberReserved = this._reserve;\r\n        // Internal
+    difficulty level reference is saved\r\n        // This value is taken from the
+    block that was assigned to this pool\r\n        this.SetDifficultyLevel(this.blockPrefab.GetComponent($typeof(MoveBlock_1.default)).difficultyLevel);\r\n       
+    // Reservation Initialized\r\n        this.initializeReserve();\r\n    }\r\n   
+    // Initialization of the reservation array\r\n    initializeReserve() {\r\n       
+    for (let i = 0; i < this._reserve; i++) {\r\n            // Instantiating a new
+    block from the referenced prefab\r\n            let newBlockVariant = UnityEngine_1.GameObject.Instantiate(this.blockPrefab);\r\n           
+    // Assign this block pool as reference for each block\r\n            // This
+    reference is necessary to return the block once it has been used.\r\n           
+    newBlockVariant.GetComponent($typeof(MoveBlock_1.default)).blockPool = this;\r\n           
+    // This block is assigned as a child of this gameobject, deactivated and added
+    to the reserve array\r\n            newBlockVariant.transform.parent = this.gameObject.transform;\r\n           
+    newBlockVariant.SetActive(false);\r\n            this._reserveList.push(newBlockVariant);\r\n       
+    }\r\n    }\r\n    // Get a block or create a new one if needed\r\n    // This
+    method receives as a parameter the position in which the block will be located\r\n   
+    getBlock(position) {\r\n        // If there is no block available, it is created\r\n       
+    if (this._numberReserved == 0) {\r\n            // Instantiating a new block
+    from the referenced prefab\r\n            let newBlockVariant = UnityEngine_1.GameObject.Instantiate(this.blockPrefab,
+    position, UnityEngine_1.Quaternion.identity, this.transform);\r\n           
+    // Assign this block pool as reference for each block\r\n            // This
+    reference is necessary to return the block once it has been used.\r\n           
+    newBlockVariant.GetComponent($typeof(MoveBlock_1.default)).blockPool = this;\r\n           
+    // The new block is added to the reserve array and the reserve item counter is
+    incremented\r\n            this._reserveList.push(newBlockVariant);\r\n           
+    this._numberReserved++;\r\n        }\r\n        // Get a gameobject from the
+    reserve array and reduce the reserve item counter\r\n        const gameObject
+    = this._reserveList.pop();\r\n        this._numberReserved--;\r\n        // The
+    block is added to the array of active elements\r\n        this._activeList.push(gameObject);\r\n       
+    // The block is located based on the position passed by parameter\r\n       
+    gameObject.transform.position = position;\r\n        // It is assigned as a child
+    of this gameobject, the default rotation is applied and it is activated\r\n       
+    gameObject.transform.parent = this.gameObject.transform;\r\n        gameObject.transform.rotation
+    = UnityEngine_1.Quaternion.identity;\r\n        gameObject.SetActive(true);\r\n       
+    // Finally, the block reference is returned\r\n        return gameObject;\r\n   
+    }\r\n    // This method receives a block by parameter and returns it to the reserve
+    array\r\n    returnBlock(gameObject) {\r\n        // Get the index of the gameObject
+    in the active array\r\n        const index = this._activeList.indexOf(gameObject);\r\n       
+    if (index >= 0) {\r\n            // The block is removed from the active array\r\n           
+    this._activeList.splice(index, 1);\r\n            // And is added to the reserve
+    array\r\n            this._reserveList.push(gameObject);\r\n            this._numberReserved++;\r\n           
+    // Turn off the gameobject in reserve and set its movement to stop\r\n           
+    gameObject.GetComponent($typeof(MoveBlock_1.default)).SetMoving(false);\r\n           
+    gameObject.SetActive(false);\r\n        }\r\n    }\r\n    // This method allows
+    setting the internal value of difficulty\r\n    SetDifficultyLevel(value) {\r\n       
+    this._difficultyLevel = value;\r\n    }\r\n    // This method allows obtaining
+    the internal value of difficulty\r\n    GetDifficultyLevel() {\r\n        return
+    this._difficultyLevel;\r\n    }\r\n}\r\nexports.default = BlockPool;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmxvY2tQb29sLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQmxvY2tQb29sLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQThEO0FBQzlELGlEQUFxRDtBQUNyRCwyQ0FBb0M7QUFFcEMscUZBQXFGO0FBQ3JGLG9EQUFvRDtBQUNwRCxxREFBcUQ7QUFDckQsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQVd4RCwyREFBMkQ7SUFDcEQsS0FBSztRQUVSLGdDQUFnQztRQUNoQyxJQUFJLENBQUMsV0FBVyxHQUFHLEVBQUUsQ0FBQztRQUN0QixJQUFJLENBQUMsWUFBWSxHQUFHLEVBQUUsQ0FBQztRQUV2QiwwQ0FBMEM7UUFDMUMsSUFBSSxDQUFDLFFBQVEsR0FBRyxDQUFDLENBQUM7UUFFbEIsdURBQXVEO1FBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQztRQUVyQywrQ0FBK0M7UUFDL0Msb0VBQW9FO1FBQ3BFLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLFlBQVksU0FBQyxtQkFBUyxHQUFJLGVBQWUsQ0FBQyxDQUFDO1FBRXBGLDBCQUEwQjtRQUMxQixJQUFJLENBQUMsaUJBQWlCLEVBQUUsQ0FBQztJQUM3QixDQUFDO0lBRUQsMENBQTBDO0lBQ2xDLGlCQUFpQjtRQUVyQixLQUFJLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxDQUFDLFFBQVEsRUFBRSxDQUFDLEVBQUUsRUFDckM7WUFDSSx1REFBdUQ7WUFDdkQsSUFBSSxlQUFlLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBZSxDQUFDO1lBRTdFLHFEQUFxRDtZQUNyRCx5RUFBeUU7WUFDekUsZUFBZSxDQUFDLFlBQVksU0FBQyxtQkFBUyxHQUFJLFNBQVMsR0FBRyxJQUFJLENBQUM7WUFFM0QsbUdBQW1HO1lBQ25HLGVBQWUsQ0FBQyxTQUFTLENBQUMs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","assetPath":"Assets/Runner/Script/Block/BlockPool.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"blockPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"BlockPool","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: b4ad6df29d0c523dd213fefb103439a5
+  onlyWriteTrigger: 0

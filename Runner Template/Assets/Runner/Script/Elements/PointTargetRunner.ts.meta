@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 76ca2faa70ee06c40ad69a967f829404
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ScoreManager_1 = require(\"../Managers/ScoreManager\");\r\n//
+    This class controls the behavior of points or coins in the game\r\nclass PointTargetRunner
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake is called when
+    the script instance is being loaded\r\n    Awake() {\r\n        // Assigning
+    a default value to the element\r\n        this._pointsValue = 10;\r\n    }\r\n   
+    // This method handles the reset of the element itself.\r\n    ResetPoint() {\r\n       
+    // This object is reassigned as the parent of the particle system\r\n       
+    this.particleSystem.transform.parent = this.transform;\r\n        //this.particleSystem.transform.position
+    = this.transform.position;\r\n        this.gameObject.SetActive(true);\r\n   
+    }\r\n    // https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html\r\n   
+    OnTriggerEnter(collider) {\r\n        // We verify that the collision is with
+    the player by comparing his tag\r\n        if (collider.CompareTag(\"Player\"))
+    {\r\n            // We ask the ScoreManager to add the value of this point\r\n           
+    ScoreManager_1.default.Instance.ScorePoints(this._pointsValue);\r\n           
+    // We remove the particle system as a child of this object and leave it outside,
+    \r\n            // this is so because the active element will be deactivated
+    in the next lines\r\n            this.particleSystem.transform.parent = this.transform.parent;\r\n           
+    // We notify the particle system to emit\r\n            this.particleSystem.GetComponent($typeof(UnityEngine_1.ParticleSystem)).Emit(30);\r\n           
+    // We deactivate the current element\r\n            this.gameObject.SetActive(false);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = PointTargetRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9pbnRUYXJnZXRSdW5uZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb2ludFRhcmdldFJ1bm5lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUEwRTtBQUMxRSxpREFBc0Q7QUFDdEQsMkRBQW9EO0FBRXBELGtFQUFrRTtBQUNsRSxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFNaEUsMkRBQTJEO0lBQ3BELEtBQUs7UUFFUiwyQ0FBMkM7UUFDM0MsSUFBSSxDQUFDLFlBQVksR0FBRyxFQUFFLENBQUM7SUFDM0IsQ0FBQztJQUVELHVEQUF1RDtJQUNoRCxVQUFVO1FBRWIsaUVBQWlFO1FBQ2pFLElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQ3RELG1FQUFtRTtRQUNuRSxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNwQyxDQUFDO0lBRUQsd0VBQXdFO0lBQ3hFLGNBQWMsQ0FBQyxRQUFrQjtRQUU3Qix1RUFBdUU7UUFDdkUsSUFBRyxRQUFRLENBQUMsVUFBVSxDQUFDLFFBQVEsQ0FBQyxFQUNoQztZQUNJLHlEQUF5RDtZQUN6RCxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1lBRXJELGlGQUFpRjtZQUNqRiw4RUFBOEU7WUFDOUUsSUFBSSxDQUFDLGNBQWMsQ0FBQyxTQUFTLENBQUMsTUFBTSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsTUFBTSxDQUFDO1lBRTdELHdDQUF3QztZQUN4QyxJQUFJLENBQUMsY0FBYyxDQUFDLFlBQVksU0FBQyw0QkFBYyxHQUFJLElBQUksQ0FBQyxFQUFFLENBQUMsQ0FBQztZQUU1RCxvQ0FBb0M7WUFDcEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDcEM7SUFDTCxDQUFDO0NBRUo7QUEzQ0Qsb0NBMkNDIn0=","assetPath":"Assets/Runner/Script/Elements/PointTargetRunner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"particleSystem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PointTargetRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: ab5c9e8839b02adae0a638cd758d814c
+  onlyWriteTrigger: 0

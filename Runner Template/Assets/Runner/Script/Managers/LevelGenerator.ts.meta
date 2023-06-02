@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 50770cb481467434a9a7d46e8856de97
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst __UnityEngine__ = require(\\\"UnityEngine\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst GameManagerRunner_1
+    = require(\\\"./GameManagerRunner\\\");\\r\\nconst TimerManagerRunner_1 = require(\\\"./TimerManagerRunner\\\");\\r\\nconst
+    BlockPool_1 = require(\\\"../Block/BlockPool\\\");\\r\\nconst MoveBlock_1 = require(\\\"../Block/MoveBlock\\\");\\r\\n//
+    This class is responsible for general levels\\r\\nclass LevelGenerator extends
+    UnityEngine_1.MonoBehaviour {\\r\\n    // Awake is called when the script instance
+    is being loaded\\r\\n    Awake() {\\r\\n        // This is how the instance of
+    this class is allocated. Which makes it a \\\"singleton\\\"\\r\\n        // https://en.wikipedia.org/wiki/Singleton_pattern\\r\\n       
+    if (LevelGenerator.Instance == null)\\r\\n            LevelGenerator.Instance
+    = this;\\r\\n        else\\r\\n            UnityEngine_1.GameObject.Destroy(this);\\r\\n   
+    }\\r\\n    // Update is called every frame, if the MonoBehaviour is enabled\\r\\n   
+    Update() {\\r\\n        // The elapsed time in seconds since the game started
+    is obtained from the TimeManager\\r\\n        // And is used to evaluate if the
+    time limit has been exceeded to increase the level of difficulty\\r\\n       
+    let seconds = TimerManagerRunner_1.default.Instance.GetTime();\\r\\n        if
+    (seconds > this.difficultyLevelsTimeLimits[this._currentDifficultyLevel]) {\\r\\n           
+    this._currentDifficultyLevel++;\\r\\n        }\\r\\n    }\\r\\n    InitializeLevel()
+    {\\r\\n        // Initialized difficulty level at 0\\r\\n        this._currentDifficultyLevel
+    = 0;\\r\\n        // The currently displayed blocks are initialized from an empty
+    array\\r\\n        this._currentBlocksShowed = [];\\r\\n        // The first
+    block is activated and positioned, the rest are requested to their respective
+    pools\\r\\n        this.startBlockPrefab.SetActive(true);\\r\\n        this.startBlockPrefab.transform.position
+    = this.startBlockSpawnPoint.transform.position;\\r\\n        // The first block
+    is added to the array of currently displayed blocks\\r\\n        this._currentBlocksShowed.push(this.startBlockPrefab);\\r\\n       
+    // Then this block is assigned as a reference of the last added block\\r\\n       
+    this._lastBlock = this.startBlockPrefab;\\r\\n        // Finally, the method
+    responsible for generating the first random block is called\\r\\n        this.GenerateBlock();\\r\\n   
+    }\\r\\n    // To generate a block, a random block pool is selected and then a
+    block is requested\\r\\n    GenerateBlock() {\\r\\n        // This flag is needed
+    to check the exit of the loop that is responsible for finding a valid BlockPool\\r\\n       
+    let isValidPool = false;\\r\\n        // This variable will contain a random
+    number\\r\\n        // In this case, this number represents the randomly obtained
+    BlockPool index.\\r\\n        let n = 0;\\r\\n        // We are going to take
+    random values \u200B\u200Buntil we find a BlockPool that meets the difficulty
+    level allowed at this time.\\r\\n        while (!isValidPool) {\\r\\n           
+    // We get a random number between 0 and the number of BlockPools\\r\\n           
+    n = Math.floor(UnityEngine_1.Random.Range(0, this.blockPools.length));\\r\\n           
+    // We compare if this value is below the current difficulty level\\r\\n           
+    if (this.blockPools[n].GetComponent($typeof(BlockPool_1.default)).GetDifficultyLevel()
+    <= this._currentDifficultyLevel) {\\r\\n                // If the difficulty
+    level is less than or equal to the current difficulty level, \\r\\n               
+    // we exit the loop and have now saved the index of that BlockPool\\r\\n               
+    isValidPool = true;\\r\\n            }\\r\\n            // If not, we'll go back
+    to look for another random index\\r\\n            // DEV NOTE:: \\r\\n           
+    // This operation can be optimized in many ways, \\r\\n            // but to
+    avoid complicating the understanding of how this class works.\\r\\n           
+    // This low-performance mechanic is currently used.\\r\\n        }\\r\\n       
+    // Get the position to generate the next block from the last\\r\\n        let
+    Pos = this._lastBlock.transform.GetChild(0).transform.position;\\r\\n       
+    // With the index corresponding to the BlackPool \\\"n\\\", \\r\\n        //
+    we ask the BlockPool of the matrix to generate a block for us \\r\\n        //
+    and we pass it as a parameter the position in which it will be located\\r\\n       
+    // Finally we save a reference to that new block\\r\\n        let block = this.blockPools[n].GetComponent($typeof(BlockPool_1.default)).getBlock(Pos);\\r\\n       
+    // We use the reference of the generated block and assign it internally to the
+    last block\\r\\n        // In this way, we can repeat the block generation process
+    from the last\\r\\n        this._lastBlock = block;\\r\\n        // Each generated
+    block is added to an array for later reset and set in motion\\r\\n        this._currentBlocksShowed.push(block);\\r\\n       
+    // We access the \\\"MoveBlock\\\" component and start it up by calling its internal
+    method \\\"SetMoving\\\",\\r\\n        // in this case it is defined by the \\\"isGameRunning\\\"
+    state maintained by the GameManagerRunner\\r\\n        this._lastBlock.GetComponent($typeof(MoveBlock_1.default)).SetMoving(GameManagerRunner_1.default.Instance.isGameRunning);\\r\\n       
+    // Finally we call the method that will define the speed based on the current
+    difficulty level\\r\\n        this.SetBlocksSpeed();\\r\\n    }\\r\\n    // This
+    method is responsible for adjusting the speed of the generated blocks based on
+    the current level of difficulty\\r\\n    SetBlocksSpeed() {\\r\\n        // Loop
+    through the array of blocks currently displayed\\r\\n        this._currentBlocksShowed.forEach(blockElement
+    => {\\r\\n            // We verify that there is a speed adjustment according
+    to the level\\r\\n            if (this.levelSpeedByDifficulty[this._currentDifficultyLevel]
+    != null) {\\r\\n                // If so, we access the \\\"MoveBlock\\\" component
+    and set the speed as defined in the respective array\\r\\n                blockElement.GetComponent($typeof(MoveBlock_1.default)).SetSpeed(this.levelSpeedByDifficulty[this._currentDifficultyLevel]);\\r\\n           
+    }\\r\\n        });\\r\\n    }\\r\\n    // This method enables the movement of
+    the blocks and additionally defines when the game is running\\r\\n    SetBlocksMovement(value)
+    {\\r\\n        // Since this method is called when there is a collision with
+    the player,\\r\\n        // it is also used to define the state of \\\"isGameRunning\\\"
+    in the GameManagerRunner.\\r\\n        GameManagerRunner_1.default.Instance.isGameRunning
+    = value;\\r\\n        // We traverse the array of currently displayed blocks
+    and set whether they are moving or not\\r\\n        this._currentBlocksShowed.forEach(blockElement
+    => {\\r\\n            blockElement.GetComponent($typeof(MoveBlock_1.default)).SetMoving(value);\\r\\n       
+    });\\r\\n        // If at the end of the game there is a block to be deleted
+    \\r\\n        // (the last one that is out of the array of those currently shown),
+    this is also set\\r\\n        if (__UnityEngine__.Object.op_Inequality(this._blockToDelete,
+    null)) {\\r\\n            this._blockToDelete.GetComponent($typeof(MoveBlock_1.default)).SetMoving(value);\\r\\n       
+    }\\r\\n    }\\r\\n    // This method removes the last block\\r\\n    RemoveLastBlock()
+    {\\r\\n        // The \\\"shift\\\" method removes and returns a reference to
+    the last object in an array\\r\\n        // We save this reference in the internal
+    variable of Block to delete\\r\\n        this._blockToDelete = this._currentBlocksShowed.shift();\\r\\n       
+    // Then we call the internal method to remove the block passing that reference
+    by parameter\\r\\n        this.RemoveFirstOrReturnToPool(this._blockToDelete);\\r\\n   
+    }\\r\\n    // This method resets the level\\r\\n    ResetLevel() {\\r\\n       
+    // We loop through the array of currently displayed blocks \\r\\n        // and
+    call the internal method to remove or return them to their respective pools\\r\\n       
+    this._currentBlocksShowed.forEach(blockElement => {\\r\\n            this.RemoveFirstOrReturnToPool(blockElement);\\r\\n       
+    });\\r\\n        // Reset the internal value of the difficulty level and clean
+    up the array of currently displayed blocks\\r\\n        this._currentDifficultyLevel
+    = 0;\\r\\n        this._currentBlocksShowed = [];\\r\\n    }\\r\\n    // If it
+    is the StartBlock, the GameObject is deactivated, if not it is returned to its
+    respective pool\\r\\n    RemoveFirstOrReturnToPool(element) {\\r\\n        //
+    We compare if the block is the initial one or one that belongs to a pool\\r\\n       
+    if (__UnityEngine__.Object.op_Equality(element, this.startBlockPrefab)) {\\r\\n           
+    // In case of being the initial block, the movement is deactivated\\r\\n           
+    // and it's deactivated\\r\\n            element.GetComponent($typeof(MoveBlock_1.default)).SetMoving(false);\\r\\n           
+    element.SetActive(false);\\r\\n        }\\r\\n        else {\\r\\n           
+    // If it belongs to a pool, its internal return method is called\\r\\n           
+    element.GetComponent($typeof(MoveBlock_1.default)).ReturnToPool();\\r\\n       
+    }\\r\\n    }\\r\\n}\\r\\nexports.default = LevelGenerator;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxHZW5lcmF0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMZXZlbEdlbmVyYXRvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSw2Q0FBdUU7QUFDdkUsMkRBQW9EO0FBQ3BELDZEQUFzRDtBQUN0RCxrREFBMkM7QUFDM0Msa0RBQTJDO0FBRTNDLCtDQUErQztBQUMvQyxNQUFxQixjQUFlLFNBQVEsMkJBQWE7SUFtQnJELDJEQUEyRDtJQUNwRCxLQUFLO1FBRVIsb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQUFJLGNBQWMsQ0FBQyxRQUFRLElBQUksSUFBSTtZQUFFLGNBQWMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUMvRCx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsZ0VBQWdFO0lBQ2hFLE1BQU07UUFFRixzRkFBc0Y7UUFDdEYsa0dBQWtHO1FBQ2xHLElBQUksT0FBTyxHQUFHLDRCQUFrQixDQUFDLFFBQVEsQ0FBQyxPQUFPLEVBQVksQ0FBQztRQUM5RCxJQUFHLE9BQU8sR0FBRyxJQUFJLENBQUMsMEJBQTBCLENBQUMsSUFBSSxDQUFDLHVCQUF1QixDQUFDLEVBQzFFO1lBQ0ksSUFBSSxDQUFDLHVCQUF1QixFQUFFLENBQUM7U0FDbEM7SUFDTCxDQUFDO0lBRU0sZUFBZTtRQUVsQixvQ0FBb0M7UUFDcEMsSUFBSSxDQUFDLHVCQUF1QixHQUFHLENBQUMsQ0FBQztRQUVqQyxxRUFBcUU7UUFDckUsSUFBSSxDQUFDLG9CQUFvQixHQUFHLEVBQUUsQ0FBQztRQUUvQixnR0FBZ0c7UUFDaEcsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN0QyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsb0JBQW9CLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUV4RixzRUFBc0U7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\",\"assetPath\":\"Assets/Runner/Script/Managers/LevelGenerator.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"blockPools\",\"type\":\"UnityEngine.GameObject[]\",\"isArray\":true,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"difficultyLevelsTimeLimits\",\"type\":\"System.Single[]\",\"isArray\":true,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"levelSpeedByDifficulty\",\"type\":\"System.Single[]\",\"isArray\":true,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"startBlockPrefab\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"startBlockSpawnPoint\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"LevelGenerator\",\"description\":\"\",\"hasAnimatorMove\":false},\"isCompiled\":true}"
+  typescriptHash: 17fb27f87ea1541b287cb01fe2ede2af
+  onlyWriteTrigger: 0

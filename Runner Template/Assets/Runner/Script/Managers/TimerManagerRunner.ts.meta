@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 13634288c211d7c49b25efa3553fc9e7
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\n// This class manages game time\r\nclass
+    TimerManagerRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    //
+    Awake is called when the script instance is being loaded\r\n    Awake() {\r\n       
+    // This is how the instance of this class is allocated. Which makes it a \"singleton\"\r\n       
+    // https://en.wikipedia.org/wiki/Singleton_pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(TimerManagerRunner.Instance,
+    null))\r\n            TimerManagerRunner.Instance = this;\r\n        else\r\n           
+    UnityEngine_1.GameObject.Destroy(this);\r\n    }\r\n    // Start is called on
+    the frame when a script is enabled just before any of the Update methods is called
+    the first time\r\n    Start() {\r\n        this.ResetTimer();\r\n        this.StartTimer();\r\n   
+    }\r\n    // This method takes a timestamp and saves it in its respective variable\r\n   
+    StartTimer() {\r\n        this.startTime = UnityEngine_1.Time.time;\r\n    }\r\n   
+    // This method resets the current time value\r\n    ResetTimer() {\r\n       
+    this.currentTime = 0;\r\n    }\r\n    // This method returns the value of the
+    time elapsed between the timestamp and this moment in milliseconds\r\n    GetTime()
+    {\r\n        this.currentTime = UnityEngine_1.Time.time - this.startTime;\r\n       
+    return this.currentTime;\r\n    }\r\n    // This method returns the same as GetTime
+    with format\r\n    GetTimeFormated() {\r\n        let time = this.GetTime();\r\n       
+    let minutes = Math.floor(time / 59).toString();\r\n        let seconds = ((time
+    % 59)).toFixed(0).padStart(2, ''0'');\r\n        return minutes + '':'' + seconds;\r\n   
+    }\r\n}\r\nexports.default = TimerManagerRunner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZXJNYW5hZ2VyUnVubmVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGltZXJNYW5hZ2VyUnVubmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQStDO0FBQy9DLGlEQUFxRDtBQUVyRCwrQkFBK0I7QUFDL0IsTUFBcUIsa0JBQW1CLFNBQVEscUNBQXFCO0lBUWpFLDJEQUEyRDtJQUNwRCxLQUFLO1FBRVIsb0ZBQW9GO1FBQ3BGLGtEQUFrRDtRQUNsRCxJQWhCQyxxQ0FBcUIsQ0F3RDBnSyxXQUFZLENBeEN4aUssa0JBQWtCLENBQUMsUUFBUSxFQUFJLElBQUk7WUFBRSxrQkFBa0IsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDOztZQUN2RSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNsQyxDQUFDO0lBRUQsdUhBQXVIO0lBQ3ZILEtBQUs7UUFFRCxJQUFJLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDbEIsSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDO0lBQ3RCLENBQUM7SUFFRCx3RUFBd0U7SUFDakUsVUFBVTtRQUViLElBQUksQ0FBQyxTQUFTLEdBQUcsa0JBQUksQ0FBQyxJQUFJLENBQUM7SUFDL0IsQ0FBQztJQUVELDRDQUE0QztJQUNyQyxVQUFVO1FBRWIsSUFBSSxDQUFDLFdBQVcsR0FBRyxDQUFDLENBQUM7SUFDekIsQ0FBQztJQUVELDBHQUEwRztJQUNuRyxPQUFPO1FBRVYsSUFBSSxDQUFDLFdBQVcsR0FBRyxrQkFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQzlDLE9BQU8sSUFBSSxDQUFDLFdBQVcsQ0FBQztJQUM1QixDQUFDO0lBRUQsc0RBQXNEO0lBQy9DLGVBQWU7UUFFbEIsSUFBSSxJQUFJLEdBQUcsSUFBSSxDQUFDLE9BQU8sRUFBWSxDQUFDO1FBQ3BDLElBQUksT0FBTyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxHQUFHLEVBQUUsQ0FBQyxDQUFDLFFBQVEsRUFBWSxDQUFDO1FBQ3pELElBQUksT0FBTyxHQUFHLENBQUMsQ0FBQyxJQUFJLEdBQUcsRUFBRSxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDLENBQUMsRUFBRSxHQUFHLENBQVcsQ0FBQztRQUVsRSxPQUFPLE9BQU8sR0FBRyxHQUFHLEdBQUcsT0FBTyxDQUFDO0lBQ25DLENBQUM7Q0FFSjtBQXJERCxxQ0FxREMifQ==","assetPath":"Assets/Runner/Script/Managers/TimerManagerRunner.ts","manifest":{"properties":[],"name":"TimerManagerRunner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 62f6ed0165ffa57578f0f83dfbb75218
+  onlyWriteTrigger: 0

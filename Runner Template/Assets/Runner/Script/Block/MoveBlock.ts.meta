@@ -1,0 +1,52 @@
+fileFormatVersion: 2
+guid: 401e5af7423c96e429e61d311aa15313
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst BlockPool_1 = require(\"./BlockPool\");\r\nconst
+    PointTargetRunner_1 = require(\"../Elements/PointTargetRunner\");\r\n// This
+    class is in charge of managing the movement behavior of the Blocks\r\nclass MoveBlock
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    // Awake is called when
+    the script instance is being loaded\r\n    Awake() {\r\n        this.speed =
+    4;\r\n        this.isMoving = false;\r\n    }\r\n    // Update is called every
+    frame, if the MonoBehaviour is enabled\r\n    Update() {\r\n        // In the
+    update if the flag indicates that the block is moving, \r\n        // we update
+    its position based on speed, time and a vector\r\n        if (this.isMoving)
+    {\r\n            this.transform.position = UnityEngine_1.Vector3.op_Addition(this.transform.position,
+    UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.left,
+    this.speed), UnityEngine_1.Time.deltaTime));\r\n        }\r\n    }\r\n    //
+    Method to set the speed, receives the value by parameter\r\n    SetSpeed(value)
+    {\r\n        this.speed = value;\r\n    }\r\n    // method to set the flag that
+    indicates if the block is moving, it receives it by parameter\r\n    SetMoving(value)
+    {\r\n        this.isMoving = value;\r\n    }\r\n    // Method to return the block
+    to its respective BlockPool\r\n    ReturnToPool() {\r\n        // It is verified
+    if there is a reference to its respective BlockPool\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(this.blockPool,
+    null)) {\r\n            // Before returning the block, the array of points of
+    the block is traversed and its state is reset\r\n            if (this.points
+    != null && this.points.length > 0) {\r\n                this.points.forEach(element
+    => {\r\n                    element.GetComponent($typeof(PointTargetRunner_1.default)).ResetPoint();\r\n               
+    });\r\n            }\r\n            // The block return method is called on the
+    BlockPool passing itself by parameter\r\n            this.blockPool.returnBlock(this.gameObject);\r\n       
+    }\r\n        else {\r\n            // If there is no reference to the BlockPool,
+    this object is destroyed\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = MoveBlock;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW92ZUJsb2NrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTW92ZUJsb2NrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXdEO0FBQ3hELGlEQUFxRDtBQUNyRCwyQ0FBb0M7QUFDcEMscUVBQThEO0FBRTlELDBFQUEwRTtBQUMxRSxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBV3hELDJEQUEyRDtJQUNwRCxLQUFLO1FBRVIsSUFBSSxDQUFDLEtBQUssR0FBRyxDQUFDLENBQUM7UUFDZixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0lBRUQsZ0VBQWdFO0lBQ2hFLE1BQU07UUFFRixpRUFBaUU7UUFDakUsMkRBQTJEO1FBQzNELElBQUcsSUFBSSxDQUFDLFFBQVEsRUFDaEI7WUFDSSxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsR0EvQjFCLHFCQUFPLENBc0V1dG1CLFdBQVksQ0F2Q3Z1bUIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBL0IxQixxQkFBTyxDQXNFdS9tQixXQUFZLENBdEUxZ25CLHFCQUFPLENBc0V1L21CLFdBQVksQ0F2QzUrbUIscUJBQU8sQ0FBQyxJQUFJLEVBQUcsSUFBSSxDQUFDLEtBQUssR0FBRyxrQkFBSSxDQUFDLFNBQVMsR0FBQztTQUN6RTtJQUNMLENBQUM7SUFFRCwyREFBMkQ7SUFDcEQsUUFBUSxDQUFDLEtBQWE7UUFFekIsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7SUFDdkIsQ0FBQztJQUVELDRGQUE0RjtJQUNyRixTQUFTLENBQUMsS0FBVTtRQUV2QixJQUFJLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQztJQUMxQixDQUFDO0lBRUQseURBQXlEO0lBQ2xELFlBQVk7UUFFZixxRUFBcUU7UUFDckUsSUFsREMscUNBQXFCLENBcUV3OEksYUFBYyxDQW5CeitJLElBQUksQ0FBQyxTQUFTLEVBQUksSUFBSSxHQUN6QjtZQUNJLG1HQUFtRztZQUNuRyxJQUFHLElBQUksQ0FBQyxNQUFNLElBQUksSUFBSSxJQUFJLElBQUksQ0FBQyxNQUFNLENBQUMsTUFBTSxHQUFHLENBQUMsRUFBRTtnQkFDOUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLEVBQUU7b0JBQzFCLE9BQU8sQ0FBQyxZQUFZLFNBQUMsMkJBQWlCLEdBQUksVUFBVSxFQUFFLENBQUM7Z0JBQzNELENBQUMsQ0FBQyxDQUFDO2FBQ047WUFFRCxpRkFBaUY7WUFDakYsSUFBSSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQy9DO2FBRUQ7WUFDSSxzRUFBc0U7WUFDdEUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3ZDO0lBQ0wsQ0FBQztDQUVKO0FBaEVELDRCQWdFQyJ9","assetPath":"Assets/Runner/Script/Block/MoveBlock.ts","manifest":{"properties":[{"assembly":"","name":"blockPool","type":"D:/00
+    - HERNAN - PROFESIONAL/CAPTIVAR/zepeto-runner/Runner Template/Assets/Runner/Script/Block/BlockPool.default","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"difficultyLevel","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"speed","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"isMoving","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"points","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"MoveBlock","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 08f703b4946c5805cf3f9b2d0042b3b9
+  onlyWriteTrigger: 0

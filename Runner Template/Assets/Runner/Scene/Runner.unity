@@ -1230,6 +1230,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9075334056003482588, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
+      propertyPath: script.keys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075334056003482588, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
+      propertyPath: script.values.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075334056003482588, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
+      propertyPath: script.keys.Array.data[0]
+      value: debugTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075334056003482588, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
+      propertyPath: script.values.Array.data[0]
+      value: '{"type":"System.Single, mscorlib","value":"0"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075334056003482588, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
+      propertyPath: script.unityValues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9075334056003482589, guid: e9ac891527dfa0d42a9a7761f64c212f, type: 3}
       propertyPath: m_RootOrder
       value: 3

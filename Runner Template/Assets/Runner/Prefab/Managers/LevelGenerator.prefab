@@ -257,13 +257,10 @@ MonoBehaviour:
   script:
     keys:
     - blockPrefab
-    - difficultyLevel
     unityValues:
     - {fileID: 42198008463064441, guid: f99860c3675bdd34eba621279c4923f2, type: 3}
-    - {fileID: 0}
     values:
     - 
-    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7e368ca5c0f375f4090430add783184f, type: 3}
