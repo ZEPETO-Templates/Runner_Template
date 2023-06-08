@@ -1,11 +1,12 @@
-import { Debug, GameObject, MonoBehaviour, Random } from 'UnityEngine';
+import { Debug, GameObject, Random } from 'UnityEngine';
+import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import GameManagerRunner from './GameManagerRunner';
 import TimerManagerRunner from './TimerManagerRunner';
 import BlockPool from '../Block/BlockPool';
 import MoveBlock from '../Block/MoveBlock';
 
 // This class is responsible for general levels
-export default class LevelGenerator extends MonoBehaviour 
+export default class LevelGenerator extends ZepetoScriptBehaviour 
 {
 
     public static Instance: LevelGenerator; // This class instance

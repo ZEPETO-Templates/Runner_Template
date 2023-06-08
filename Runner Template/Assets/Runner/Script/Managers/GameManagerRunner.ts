@@ -3,11 +3,12 @@ import { SpawnInfo, ZepetoPlayers, ZepetoCharacter } from 'ZEPETO.Character.Cont
 import { WorldService } from 'ZEPETO.World';
 import TimerManagerRunner from './TimerManagerRunner';
 import LevelGenerator from './LevelGenerator';
+import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import ScoreManager from './ScoreManager';
 import UIManager from './UIManager';
  
 //This class is the main manager that controls the general state of the game
-export default class GameManagerRunner extends MonoBehaviour 
+export default class GameManagerRunner extends ZepetoScriptBehaviour 
 {
 
     public static Instance: GameManagerRunner; // This class instance
