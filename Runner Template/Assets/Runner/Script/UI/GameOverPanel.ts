@@ -31,8 +31,8 @@ export default class GameOverPanel extends ZepetoScriptBehaviour
     // with the data currently displayed in the UI by the GameManager
     public updateGameOverPanel() 
     {
-        this.tittlePointsTxt.text = "Points: " + UIManager.Instance.PointTxt.text;
-        this.tittleTimerTxt.text = "Time: " + UIManager.Instance.timeTxt.text;
+        this.tittlePointsTxt.text =  UIManager.Instance.PointTxt.text;
+        this.tittleTimerTxt.text = UIManager.Instance.timeTxt.text;
     }
   
 }
