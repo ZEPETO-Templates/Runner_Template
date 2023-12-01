@@ -1,5 +1,4 @@
-import { TextMeshProUGUI } from 'TMPro';
-import { Button } from 'UnityEngine.UI';
+import { Button, Text } from 'UnityEngine.UI';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import GameManagerRunner from '../Managers/GameManagerRunner';
 import UIManager from '../Managers/UIManager';
@@ -9,8 +8,8 @@ export default class GameOverPanel extends ZepetoScriptBehaviour
 {
 
     public retryButton: Button; // Retry button reference
-    public tittlePointsTxt: TextMeshProUGUI; // Points text reference
-    public tittleTimerTxt: TextMeshProUGUI; // Timer text reference
+    public tittlePointsTxt: Text; // Points text reference
+    public tittleTimerTxt: Text; // Timer text reference
 
     // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
     Start()

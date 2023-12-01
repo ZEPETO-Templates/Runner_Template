@@ -1,10 +1,10 @@
 import { GameObject } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { TextMeshProUGUI } from 'TMPro';
 import GameManagerRunner from './GameManagerRunner';
 import TimerManagerRunner from './TimerManagerRunner';
 import ScoreManager from './ScoreManager';
 import GameOverPanel from '../UI/GameOverPanel';
+import { Text } from 'UnityEngine.UI';
 
 // This class manages everything related to the UI
 export default class UIManager extends ZepetoScriptBehaviour 
@@ -12,8 +12,8 @@ export default class UIManager extends ZepetoScriptBehaviour
 
     public static Instance: UIManager; // This class instance
 
-    public PointTxt: TextMeshProUGUI; // Points text reference in general game interface
-    public timeTxt: TextMeshProUGUI; // Reference to the time text in the general game interface
+    public PointTxt: Text; // Points text reference in general game interface
+    public timeTxt: Text; // Reference to the time text in the general game interface
 
     @SerializeField() gameOverPanel: GameObject; // Game over panel reference
     @SerializeField() gameStartPanel: GameObject; // Reference to start game panel
@@ -32,8 +32,8 @@ export default class UIManager extends ZepetoScriptBehaviour
         // The timer will run once the game starts
         if(GameManagerRunner.Instance.isGameRunning)
         {
-            this.PointTxt.text = ("Score:  " + ScoreManager.Instance.GetPoints().toString());
-            this.timeTxt.text = ("Timer:  " + TimerManagerRunner.Instance.GetTimeFormated());
+            this.PointTxt.text = ScoreManager.Instance.GetPoints().toString();
+            this.timeTxt.text = TimerManagerRunner.Instance.GetTimeFormated();
         }
     }
 
