@@ -1,12 +1,12 @@
 import { GameObject, MonoBehaviour, Vector3 } from 'UnityEngine';
-import { SpawnInfo, ZepetoPlayers, ZepetoCharacter } from 'ZEPETO.Character.Controller';
+import { SpawnInfo, ZepetoPlayers, ZepetoCharacter, UIZepetoPlayerControl, } from 'ZEPETO.Character.Controller';
 import { WorldService } from 'ZEPETO.World';
 import TimerManagerRunner from './TimerManagerRunner';
 import LevelGenerator from './LevelGenerator';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import ScoreManager from './ScoreManager';
 import UIManager from './UIManager';
- 
+
 //This class is the main manager that controls the general state of the game
 export default class GameManagerRunner extends ZepetoScriptBehaviour 
 {
@@ -16,7 +16,8 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
     public playerSpawnPoint: GameObject; // Reference to a gameobject that functions as a spawn location for the player
     
     private _zepetoCharacter: ZepetoCharacter; // Reference of ZepetoCharacter
-
+    private controlUI: UIZepetoPlayerControl; // Reference to the UIZepetoPlayerControl to restrict the use when you are in the game
+    
     // Awake is called when the script instance is being loaded
     public Awake(): void 
     {
@@ -34,7 +35,7 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
 
         // Instance of the player zepeto
         ZepetoPlayers.instance.CreatePlayerWithUserId(WorldService.userId, new SpawnInfo(), true);
-        
+      
         // The instantiation can take a few seconds, the following lines are executed once this happens
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             
@@ -48,8 +49,10 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
 
             // The UIManager is told to display the initial UI
             UIManager.Instance.OnStart();
+            // Find a object with the type of UIZepetoPlayerControl and set it on the variable
+            this.controlUI = GameObject.FindObjectOfType<UIZepetoPlayerControl>();
+            this.ControlPlayer(false);
         });
-      
     }
 
     // This method initializes the game
@@ -64,6 +67,7 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
         // The location of the ZepetoCharacter can be assigned using a method of its own class
         // "Teleport" that receives as parameters a position and a rotation which in this case are taken from the spawnPoint
         this._zepetoCharacter.gameObject.SetActive(true);
+        this.ControlPlayer(true);
         this._zepetoCharacter.Teleport(this.playerSpawnPoint.transform.position, this.playerSpawnPoint.transform.rotation);
         
         // "setTimeout" allows us to call a method after a given time in milliseconds
@@ -80,7 +84,7 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
         LevelGenerator.Instance.ResetLevel();
         ScoreManager.Instance.ResetPoints();
         TimerManagerRunner.Instance.ResetTimer();
-
+        this.ControlPlayer(false);
         this.OnGameStart();
     }
 
@@ -95,6 +99,17 @@ export default class GameManagerRunner extends ZepetoScriptBehaviour
 
         // The UIManager is told to display the game over interface
         UIManager.Instance.OnGameOver();
+
+        this.ControlPlayer(false);
     }
 
+     // This function active or deactive the control of the player
+     public ControlPlayer(activePlayer: bool) {
+        // If the controlUI is not null, deactivate the object
+        this.controlUI?.gameObject.SetActive(activePlayer);
+
+        // Check if the player have to be active and set the camera sensitivity on 5 or 0 
+        if (activePlayer) ZepetoPlayers.instance.cameraData.sensitivity = 5;
+        else ZepetoPlayers.instance.cameraData.sensitivity = 0;
+    }
 }
