@@ -21,6 +21,7 @@ In this endless runner game, players take on the role of a character racing thro
   - [Downloading it](#downloading-the-project)
   - [By Unitypackage](#getting-it-from-the-releases-section)
 
+
 ### Cloning the project
 
 First we go to the [Code] button and click it.
@@ -63,13 +64,16 @@ Then click on the file ".unitypackage" and import it in a new project of Unity!
 
 
 > 💡 Enjoy and start creating with the Template! :tada:
+
+>  If you're new, the best way to start is by exploring the tutorial.
+
 <br>
 
 
 
 ## ❓ FAQ
 
-<details> <summary> <h3>How to open the project</h3> </summary>
+<details><summary> How to open the project </summary>
 
 Select the template folder and it will open the project.
 <br><img src = "docs/images/howto/unityproject.png" alt = "unity project img" width="600"></img>
@@ -85,7 +89,7 @@ Select the template folder and it will open the project.
 </details>
 
 
-<details> <summary> <h3>How to play</h3> </summary> 
+<details><summary>How to play</summary> 
 Before you press play to test the template you have to open the scene. <br>
 
 <details> <summary> To play the game template in Unity, follow these steps: </summary>
@@ -97,23 +101,66 @@ Before you press play to test the template you have to open the scene. <br>
 </details>
 </details>
 
+<details><summary> How to explore the Tutorial: </summary>
+If you're new to Unity, you can explore the tutorial section. There's a basic Unity tutorial available, as well as a template tutorial designed to help you quickly locate where the components are. Here's a step-by-step guide to selecting it in the Unity editor:
+1. In Unity, navigate to the top menu bar.
+2.  Click on "Tutorials".
+3.  Select "Show Tutorials" from the dropdown menu.
+<br><img width="700" alt="image" src="./docs/images/howto/tutorial.png"></img><br>   
+<br></details>
 
-<details> <summary>
-<h3> How to change variables</h3> </summary> 
-
-To make changes in the game you can go in the Hierarchy and select the "Managers" folder there are the most customizables settings for the template.
-
+<details><summary> How to change variables </summary> 
+1. Open the Hierarchy: In the Unity Editor, locate and click on the "Hierarchy" tab at the top of the screen.
+2. Select the "TEMPLATE SETTINGS" Folder: In the Hierarchy window, find and click on the "TEMPLATE SETTINGS" folder. This folder contains the most customizable settings for the template.
+3. Modify Variables:  With the "TEMPLATE SETTINGS" folder selected, you can now modify the variables and settings for the template as needed.
+4. Save Changes: After making your changes, remember to save the scene by clicking on "File" > "Save Scene" in the Unity Editor.
 <br><img src = "docs/images/howto/wherearevariables.png" alt = "variables img" width="600"></img>
 <br>
-<details> <summary> To change variables in Unity, follow these steps:</summary>
-
-1. Open the Hierarchy: In the Unity Editor, locate and click on the "Hierarchy" tab at the top of the screen.
-2. Select the "Managers" Folder: In the Hierarchy window, find and click on the "Managers" folder. This folder contains the most customizable settings for the template.
-3. Modify Variables:  With the "Managers" folder selected, you can now modify the variables and settings for the template as needed.
-4. Save Changes: After making your changes, remember to save the scene by clicking on "File" > "Save Scene" in the Unity Editor.
+<details><summary> How to change variables in the Inspector:</summary>
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select an Object: Choose the GameObject in your scene that contains the component with the variables you want to change.
+3. Open the Inspector: With the GameObject selected, the Inspector panel should display the properties of the selected object.
+4. Locate the Variable: Find the variable you want to change in the Inspector. This could be a public variable in a script attached to the GameObject or a variable exposed by a Unity component.
+5. Edit the Variable: Click on the field next to the variable name in the Inspector. Depending on the variable type, you may be able to directly type a new value, use a slider, or choose from a dropdown list.
+6. Enter a New Value: Enter the new value for the variable. For example, if the variable is an integer representing a player's health, you could change it from 100 to 150.
+7. Apply the Change: Press Enter or click outside the field to apply the new value. The variable in the script or component will be updated with the new value.
+8. Verify the Change: Check the GameObject in the scene or play mode to verify that the variable change has the desired effect on the object's behavior.
+9. Save Changes.
 </details>
 </details>
 <br><br>
+
+
+<details><summary> How to create a prefab:</summary> 
+Prefabs are a special type of component that allows fully configured GameObjects to be saved in the Project for reuse. These assets can then be shared between scenes, or even other projects without having to be configured again.
+
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select an Object: Choose the GameObject in your scene that you want to turn into a prefab. This could be a 3D model, a UI element, or any other GameObject.
+3.  Prepare the Object: Ensure that the GameObject is set up the way you want it to appear in the prefab. This includes its position, rotation, scale, and any components attached to it.
+4.  Create the Prefab:
+      - Select the GameObject in the Hierarchy window.
+      -Right-click on the GameObject or go to the top menu and select "GameObject" > "Create Empty" to create an empty GameObject as a parent.
+      - Drag the original GameObject into the new empty GameObject to make it a child.
+      - Rename the new parent GameObject to something descriptive, like "PrefabName_Prefab" (replace "PrefabName" with your desired name).
+5. Save the Prefab: With the new parent GameObject selected, drag it from the Hierarchy window into the Project window. Release the mouse button to create a prefab asset based on the GameObject.
+6. Use the Prefab:
+To use the prefab in your scene, simply drag it from the Project window into your scene's Hierarchy window or directly into the scene view.
+7. Edit the Prefab:
+ If you need to make changes to the prefab, you can edit the original GameObject in your scene. Any changes made to the original GameObject will be reflected in all instances of the prefab.
+8. Save Changes.
+</details>
+
+
+<details><summary> How to drag an object into the variable inspector area:</summary> 
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select the Object: Choose the object that you want to drag into the variable inspector area. This could be a GameObject, a script, or any other asset in your project.
+3. Locate the Variable: Find the variable in your script or component where you want to assign the object. This variable should be declared as a public field in your script to be visible in the inspector.
+4. Open the Inspector: Select the GameObject or component that contains the script with the variable you want to assign. The inspector panel should now display the properties of the selected object or component.
+5. Drag the Object: Click and hold on the object you want to assign, then drag it from the Hierarchy or Project window and drop it onto the variable field in the inspector. Release the mouse button to complete the drag-and-drop operation.
+6. Verify the Assignment: After dropping the object onto the variable field, you should see the field update with the name of the object you dragged. This indicates that the object has been successfully assigned to the variable.
+7.  Save Changes: Once you've assigned the object to the variable, remember to save your scene and project to preserve the changes.
+</details>
+<br>
 
 
 
@@ -232,6 +279,8 @@ A game object that upon collision with the player triggers the game over event. 
 | `Max Speed` | Maximum speed of movement that the object could acquire  |
 | `Min Speed` | Minimum speed of movement that the object could acquire  |
 | `Height`    | Maximum height you can climb from your starting position |
+
+
 
 
 
